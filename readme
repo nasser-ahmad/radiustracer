@@ -1,0 +1,12 @@
+This softwore is for auditing radius information of all sy isps and store 
+information of that in local database
+
+1. prepare an action its job is to add add some information
+	to database when receive get request on it .
+2. prepare view to search for stored information for all isps
+	and display them to the user
+3. the information i want from the requst is privatd ip, isp , beside 
+	time and public ip which i can extract from the request.
+4. so the database should contain fields to store all this infromation,
+	id , isp_id , private ip ,inside ip , public ip , timestamp
+5. bye

@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
 
 
 	def index
-		@requests = Request.all
+		@requests = Request.paginate(:page => params[:page], per_page: 10)
 	end
 
 	def show
@@ -17,11 +17,13 @@ class RequestsController < ApplicationController
 
 	def create
 		@request = Request.new(request_params)
+		@request.public_ip = request.remote_ip
 		if @request.save			
 			flash[:notice] = "Request succecfully created !!!"
 			redirect_to requests_path
 		else
 			flash[:notice] = "Error when trying to create new request!!"
+			@isps = Isp.all
 			render 'new'
 		end
 	end

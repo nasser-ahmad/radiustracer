@@ -10,3 +10,6 @@ information of that in local database
 4. so the database should contain fields to store all this infromation,
 	id , isp_id , private ip ,inside ip , public ip , timestamp
 5. bye
+
+
+	- ISP: Each isp should has field for ip ranges which will be used like ( isp1.ranges = [range1 	, range2 ....]). Ranges will be migration string field represent the ranges by comma seperated string.

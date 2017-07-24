@@ -1,0 +1,8 @@
+<%= render 'shared/errors' , obj: @isp %>
+
+<% form_for @isp do |isp| %>
+	<%= isp.label(:name , "ISP name")%>
+	<%= isp.text_field(:name ) %>
+	<%= isp.label(:ranges , "ISP ip ranges")%>
+	<%= isp.text_field(:ranges ) %>
+<% end %>

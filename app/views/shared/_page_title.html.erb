@@ -1,1 +1,22 @@
-<h1> This is <%= title %> Page </h1>
+
+
+  <div class="page-header">
+   <h1>
+ 	  <%= title %> 
+	  <% case title %>
+	   <% when 'ISPs' %>
+	   	 | <%= link_to 'Back to Home page' , root_path , :class => 'btn btn-danger' %>
+	   <% when 'Requests' %>
+		 | <%= link_to 'Back to Home page' , root_path , :class => 'btn btn-danger' %> 
+	   <% when 'Request New' %>
+		 | <%= link_to 'Requests' , requests_path , :class => 'btn btn-success' %>
+	   <% when 'ISP EDIT' %>
+	   	 | <%= link_to 'ISPs' , isps_path , :class => 'btn btn-success' %>
+	   <% when 'ISP New' %>
+	   	 | <%= link_to 'ISPs' , isps_path , :class => 'btn btn-success' %>
+	   <% when 'ISP Show' %>
+	   	 | <%= link_to 'ISPs' , isps_path , :class => 'btn btn-success' %>
+	  <% end %>
+   </h1>
+  </div>
+

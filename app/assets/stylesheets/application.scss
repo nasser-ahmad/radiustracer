@@ -23,7 +23,7 @@
 }
 
 body {
-	padding-top: 200px;
+	padding-top: 150px;
 	}
 
 .nav-item {
@@ -40,36 +40,55 @@ body {
 
 }
 
-input , textarea , uneditable-input {
+input , textarea {
 	
 	padding-bottom: 5px;
 	border: 1px solid #2d2d2d;
 	border-radius: 5px;
 	margin-bottom: 5px;
-	margin-top: 35px;
+	margin-top: 5px;
 	margin-left: 5px;
-}
-#request_isp_id {
-	width: 90%;
-}
-#request_private_ip , #request_router_ip {
-	width: 35%;
-}
-#request_private_ip {
-	margin-right: 15px;
-}
-
-#request_submit {
 	width: 100%;
+	text-align: center;
+}
+.release_date , .assign_date {
+	width: 100%;
+}
+#request_isp_id{
+	width: 100%;
+	text-align: center;
 }
 select {
 	border: 1px solid #2d2d2d;
 	border-radius: 5px;
 	margin-bottom: 5px;
-	margin-top: 35px;
+	margin-top: 5px;
 	margin-left: 5px;
+	margin-right: 10px;
 	font-size: 1.3em;
 }
 input {
 	height: auto !important;
+}
+
+.home-button{
+	height: 250px;
+	width: 250px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: left;
+	margin-right: 10px;
+	font-size: 2em;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	padding: 105px 0;
+	margin-left: 160px;
+	font-weight: bold;
+	text-align: center;
+
+}
+
+.home_jumpo {
+	height: 350px;
 }

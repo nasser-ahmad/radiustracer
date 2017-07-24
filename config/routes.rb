@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :requests, :only => [:show , :new, :create , :index]
+  resources :isps, :only => [:show , :new, :create , :index , :edit , :destroy]
+
 end

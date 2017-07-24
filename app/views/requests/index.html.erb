@@ -1,44 +1,40 @@
-<%= render 'shared/page_title' , title: "Requests index" %>
-
-
-
-
-	
-	<div class="row"">
-		
-		<div class="col-lg-10 well">
-			
-			<h2>Requests table | <%= link_to 'Add new request' , new_request_path , :class => 'btn btn-success'%></h2> 
-			             
-			  <table class="table">
-			    <thead>
-			      <tr>
-			        <th>Isp</th>
-			        <th>public ip</th>
-			        <th>router ip</th>
-			        <th>private ip</th>
-			        <th>assign date</th>
-			        <th>release date</th>
-			        <th>last update</th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			      <% @requests.each do |request| %>
-			      	<tr>
-			      		<td></td>
-			      		<td><%= request.public_ip %></td>
-			      		<td><%= request.router_ip %></td>
-			      		<td><%= request.private_ip %></td>
-			      		<td><%= request.assign_date %> </td>
-			      		<td><%= request.release_date%> </td>
-			      		<td><%= request.updated_at %></td>
-			      	</tr>
-			      <% end %>
-			    </tbody>
-			  </table>
-		</div>
+<%= render 'shared/page_title' , title: "Requests" %>
+<div class="row"">	
+	<div class="col-lg-12 well">
+		<h2>Requests table | <%= link_to 'Add new request' , new_request_path , :class => 'btn btn-success'%></h2>		             
+		  <table class="table  table-bordered table-striped ">
+		    <thead>
+		      <tr>
+		        <th>Isp</th>
+		        <th>public ip</th>
+		        <th>router ip</th>
+		        <th>private ip</th>
+		        <th>assign date</th>
+		        <th>release date</th>
+		        <th>last update</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <% @requests.each do |request| %>
+		      	<tr>
+		      		<td><%= Isp.find(request.isp_id).name %></td>
+		      		<td><%= request.public_ip %></td>
+		      		<td><%= request.router_ip %></td>
+		      		<td><%= request.private_ip %></td>
+		      		<td><%= request.assign_date %> </td>
+		      		<td><%= request.release_date%> </td>
+		      		<td><%= request.updated_at %></td>
+		      	</tr>
+		      <% end %>		      
+		    </tbody>
+		    <%= will_paginate %>
+		  </table>
 	</div>
-	<hr/>
+</div>
+
+
+
+<hr/>
 	
 
 

@@ -1,7 +1,9 @@
 <%= render 'shared/errors' , obj: @request %>
 
+<%= render 'shared/page_title' , title: "Request New" %>
+
 <div class="row">
-	<div class="well col-md-8 col-md-offset-2">
+	<div class="well col-md-6 col-md-offset-3">
 		<%= form_for @request , :url => { :action => "create" , :request_ip => request.remote_ip }     do  |f| %>
 		  <%= f.label(:isp_id, "ISP name") %>
 		  <%= f.select :isp_id,  options_for_select(@isps.collect{ |u| [u.name , u.id]})  %>
@@ -9,14 +11,10 @@
 		  <%= f.text_field(:private_ip) %>
 		  <%= f.label(:router_ip) %>
 		  <%= f.text_field(:router_ip) %>		  
-		  <div class="assing_date">
-		  	<%= f.label(:assign_date) %>
-		  	<%= f.datetime_select :assign_date , {:default => Time.now} %>
-		  </div>
-		  <div class="release_date">
-			<%= f.label(:release_date) %>
-			<%= f.datetime_select :release_date , {:default => Time.now} %>
-		  </div>
+		  <%= f.label(:assign_date) %>
+		  <%= f.datetime_select :assign_date , {:default => Time.now} %>
+		  <%= f.label(:release_date) %>
+		  <%= f.datetime_select :release_date , {:default => Time.now} %>
 		  <%= f.submit("Add" , :id => 'request_submit' , :class => 'btn btn-success') %>
 		<% end %>
 	</div>

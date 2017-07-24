@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170722114927) do
+ActiveRecord::Schema.define(version: 20170723115931) do
 
   create_table "isps", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ranges"
   end
 
   create_table "requests", force: :cascade do |t|

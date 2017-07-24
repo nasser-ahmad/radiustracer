@@ -1,8 +1,13 @@
 <%= render 'shared/errors' , obj: @isp %>
 
-<% form_for @isp do |isp| %>
-	<%= isp.label(:name , "ISP name")%>
-	<%= isp.text_field(:name ) %>
-	<%= isp.label(:ranges , "ISP ip ranges")%>
-	<%= isp.text_field(:ranges ) %>
-<% end %>
+<div class="row">
+	<div class="well col-md-8 col-md-offset-2">
+		<%= form_for @isp  do |isp| %>
+			<%= isp.label(:name , "ISP Name")%>
+			<%= isp.text_field(:name ) %>
+			<%= isp.label(:ranges , "IP Ranges")%>
+			<%= isp.text_field(:ranges ) %>
+			<%= isp.submit(@isp.new_record? ? "Create ISP" : "Update ISP info", class: "btn btn-success") %>
+		<% end %>
+	</div>
+</div>

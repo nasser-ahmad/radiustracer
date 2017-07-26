@@ -2,10 +2,10 @@
 
 <div class="well">
 	<h2>ISPs table | <%= link_to 'Add new isp' , new_isp_path , :class => 'btn btn-success'%></h2>
-	<table class="table table-striped table-bordered">
+	<table class="table table-striped table-bordered table_isps_index">
 		<thead>
 			<tr>
-				<th>Seq</th>
+				<th class="table_seq">Seq</th>
 				<th>Name</th>
 				<th>Ranges</th>
 				<th>Options</th>			
@@ -15,8 +15,8 @@
 			<% @isps.each do |isp| %>
 
 			<tr>
-				<td>
-					
+				<td class="table_seq">
+					<%= isp.id %>
 				</td>
 				<td>
 					<%= isp.name %>

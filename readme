@@ -13,3 +13,5 @@ information of that in local database
 
 
 	- ISP: Each isp should has field for ip ranges which will be used like ( isp1.ranges = [range1 	, range2 ....]). Ranges will be migration string field represent the ranges by comma seperated string.
+
+	   . In the isp new page i will put :isp_name as text field , and submit button to create action, with a editable list .

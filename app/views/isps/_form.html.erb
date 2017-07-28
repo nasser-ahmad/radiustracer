@@ -1,35 +1,21 @@
 <%= render 'shared/errors' , obj: @isp %>
 
 <div class="row">
-	<div class="well col-md-8 col-md-offset-2">
-		<%= form_for @isp  do |isp| %>
-			<%= isp.label(:name , "ISP Name")%>
-			<%= isp.text_field(:name ) %>
-			<%= isp.label(:ranges , "IP Ranges")%>
-			<%= isp.text_field(:ranges ) %>
-			<%= isp.submit(@isp.new_record? ? "Create ISP" : "Update ISP info", class: "btn btn-success") %>
-		<% end %>
-	</div>
-</div>
-
-<div class="row">
-	<div class="jumpotron col-lg-12">
+	<div class="jumbotron col-lg-12">
 	<div class="row">
 		<div class="well col-md-5"> 
 			<%= form_for @isp  do |isp| %>
 				<%= isp.label(:name , "ISP Name")%>
 				<%= isp.text_field(:name ) %>
-				<%= isp.label(:ranges , "IP Ranges")%>
-				<%= isp.text_field(:ranges ) %>
+				<%= isp.label(:ip_ranges , "IP Ranges")%>
+				<%= isp.text_field(:ip_ranges ) %>
 				<%= isp.submit(@isp.new_record? ? "Create ISP" : "Update ISP info", class: "btn btn-success") %>
 			<% end %>
 		</div>
 		<div class="col-md-2"></div>
 		<div class="col-md-5">
 			<ul>
-				<li>
-					
-				</li>
+				<%= render @isp %>
 			</ul>
 		</div>
 	</div>

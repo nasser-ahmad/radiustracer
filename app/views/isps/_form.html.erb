@@ -15,7 +15,7 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-5">
 			<ul>
-				<%= render @isp %>
+				<%= render @isp.ip_ranges unless @isp.ip_ranges.nil? %>
 			</ul>
 		</div>
 	</div>

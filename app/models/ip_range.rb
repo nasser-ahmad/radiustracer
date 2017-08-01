@@ -1,4 +1,4 @@
-class Ip_range < ActiveRecord::Base
+class IpRange < ActiveRecord::Base
 
 	belongs_to :isp
 

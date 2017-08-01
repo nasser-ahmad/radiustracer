@@ -39,8 +39,6 @@ class IspsController < ApplicationController
 		end
 	end
 
-
-
 	def destroy
 		Isp.find(params[:id]).destroy
 		flash[:success] = "Isp deleted"

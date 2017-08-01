@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :requests, :only => [:show , :new, :create , :index]
   resources :isps, :only => [:show , :new, :create , :index , :edit , :destroy] do
-  	resources :ranges
+  	resources :ip_ranges
   end
 
 

@@ -7,17 +7,28 @@
 			<%= form_for @isp  do |isp| %>
 				<%= isp.label(:name , "ISP Name")%>
 				<%= isp.text_field(:name ) %>
-				<%= isp.label(:ip_ranges , "IP Ranges")%>
-				<%= isp.text_field(:ip_ranges ) %>
-				<%= isp.submit(@isp.new_record? ? "Create ISP" : "Update ISP info", class: "btn btn-success") %>
+				<%= isp.label(:isp_ip_ranges , "IP Ranges")%>
+				<%= isp.text_field(:isp_ip_ranges ) %>
+				<%= isp.submit(@isp.new_record? ? "Create ISP" : "Update ISP info", class: "btn btn-success") %> 
 			<% end %>
 		</div>
-		<div class="col-md-2"></div>
-		<div class="col-md-5">
-			<ul>
+		<div class="col-md-4">
+			<%= form_with(model: [ @isp, IpRange.new ]) do |f| %>
+			  <%= f.label :ip_range %><br>
+			  <%= f.text_field :ip_range %>
+			  <%= f.label :note %>
+			  <%= f.text_field :note %>
+			  <%= f.hidden_field :isp_id, :value => @isp.id %>
+			  <%= f.submit %>
+			<% end %>
+		</div>
+		<div class="col-md-3 ">
+			<h4>ISP Ranges:</h4>
+			<ul id="ip_ranges">
 				<%= render @isp.ip_ranges unless @isp.ip_ranges.nil? %>
 			</ul>
 		</div>
 	</div>
 	</div>
 </div>
+

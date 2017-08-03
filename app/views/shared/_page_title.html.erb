@@ -16,6 +16,12 @@
 	   	 | <%= link_to 'Back to ISPs' , isps_path , :class => 'btn btn-danger' %>
 	   <% when 'ISP Show' %>
 	   	 | <%= link_to 'Back to ISPs' , isps_path , :class => 'btn btn-danger' %>
+	   <% when 'Ip Ranges' %>
+	   	 | <%= link_to 'Back to ISP' , isp_path(@isp) , :class => 'btn btn-danger' %>
+	   <% when /INFO/ %>
+	   	 | <%= link_to 'Back to ISPs' , isps_path , :class => 'btn btn-danger' %>	   	 
+	   <% when /Range Edit/ %>
+	   	 | <%= link_to 'Back to Ip Ranges' , isp_ip_ranges_path(@isp) , :class => 'btn btn-danger' %>	   	 
 	  <% end %>
    </h1>
   </div>

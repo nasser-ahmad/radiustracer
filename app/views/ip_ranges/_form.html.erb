@@ -1,0 +1,10 @@
+<div class="col-md-4">
+	<%= form_with(model: [ @isp, IpRange.new ]) do |f| %>
+	  <%= f.label :ip_range %><br>
+	  <%= f.text_field :ip_range %>
+	  <%= f.label :note %>
+	  <%= f.text_field :note %>
+	  <%= f.hidden_field :isp_id, :value => @isp.id %>
+	  <%= f.submit %>
+	<% end %>
+</div>

@@ -1,3 +1,11 @@
-<div class="well">
-		
+<%= render 'shared/page_title' , title: "ISP #{@isp.name} INFO" %>
+
+
+<div class="well">			
+	<div class="col-md-3 ">
+		<h4>ISP Ranges:</h4>
+		<ul id="ip_ranges">
+			<%= render @isp.ip_ranges unless @isp.ip_ranges.nil? %>
+		</ul>
+	</div>
 </div>

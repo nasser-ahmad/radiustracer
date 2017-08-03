@@ -1,0 +1,40 @@
+<%= render 'shared/page_title' , title: "Ip Ranges" %>
+<div class="row"">	
+	<div class="col-lg-12 well">
+		<h2>Ip Ranges table | <%= link_to 'Add new Range' , new_isp_ip_range_path , :class => 'btn btn-success'%></h2>		             
+		  <table class="table  table-bordered table-striped index_table ">
+		    <thead>
+		      <tr>
+		        <th>Ip Range</th>
+		        <th>Notes</th>
+		        <th>Options</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <% @ip_ranges.each do |ip_range| %>
+		      	<tr>
+		      		<td><%= ip_range.ip_range %> &nbsp;&nbsp;|&nbsp;&nbsp;
+		      			<%= link_to 'Show' , isp_ip_range_path(@isp,ip_range) %></td>
+		      		<td> <%= ip_range.note %></td>		      		
+		      		<td>
+		      			<%= link_to 'Edit' , edit_isp_ip_range_path(@isp,ip_range) %> 
+		      		</td>
+
+		      		</tr>
+		      <% end %>		      
+		    </tbody>
+		    <%= will_paginate %>
+		  </table>
+	</div>
+</div>
+
+
+
+<hr/>
+	
+
+
+
+
+
+

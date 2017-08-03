@@ -19,13 +19,11 @@
 					<%= isp.id %>  
 				</td>
 				<td>
-					<%= isp.name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<%= link_to 'Show' , isp_path(isp) %>
+					<%= link_to isp.name , isp_path(isp) %>
 				</td>
 				<td>
 					<% # link_to 'Show Ip Ranges', isp_ip_ranges_path(isp) %>
-					<% # link_to '...' , "#ip_ranges_modal" , "class" => "btn btn-sm" , "data-toggle" => "modal"    %>
-					<button id="ip_ranges_modal_btn"  class="btn" >.......</button>
+					<%= link_to '.......' , "#ip_ranges_modal"  , "data-toggle" => "modal"    %>
 
 
 					<%= render 'ip_ranges_modal' , isp_i: isp %>
@@ -40,10 +38,3 @@
 	</table>
 </div>
 
-<script>
-$(document).ready(function(){
-    $("#ip_ranges_modal_btn").click(function(){
-        $("#ip_ranges_modal").modal({backdrop: false});
-    });    
-});
-</script>

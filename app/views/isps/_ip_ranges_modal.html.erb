@@ -7,14 +7,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><% isp_i.name %>&nbsp; Ip Ranges:</h4>
+        <h4 class="modal-title"><%= isp_i.name %>&nbsp; Ip Ranges:</h4>
       </div>
-      <div class="modal-body">
-        <ul>
+      <div class="modal-body" style="margin-bottom: 20px;">
+        <ul class="ip_ranges_modal_list">
         	<% isp_i.ip_ranges.any? do %>
         		<% isp_i.ip_ranges.each  do |ip_r|%>
-        			<li>
-        				<%= link_to ip_r.ip_range , isp_ip_range_path(isp_i,ip_r) %>
+        			<li style="margin-bottom: 10px;">
+        				<%= link_to ip_r.ip_range + '/' + ip_r.subnet_mask , isp_ip_range_path(isp_i,ip_r)  %>
         			</li>
         		<% end %>
         	<% end %>

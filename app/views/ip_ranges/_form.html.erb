@@ -1,10 +1,16 @@
-<div class="col-md-4">
-	<%= form_with(model: [ @isp, IpRange.new ]) do |f| %>
-	  <%= f.label :ip_range %><br>
-	  <%= f.text_field :ip_range %>
-	  <%= f.label :note %>
-	  <%= f.text_field :note %>
-	  <%= f.hidden_field :isp_id, :value => @isp.id %>
-	  <%= f.submit %>
-	<% end %>
+<%= render 'shared/errors' , obj: @ip_range %>
+
+<div class="row">
+	<div class="col-lg-6 col-lg-offset-3">
+		<%= form_for([@isp,@ip_range]) do |f| %>
+		  <%= f.label :ip_range %><br>
+		  <%= f.text_field :ip_range %>
+		  <%= f.label :subnet_mask %><br>
+		  <%= f.text_field :subnet_mask %>
+		  <%= f.label :note %>
+		  <%= f.text_field :note %>
+		  <%= f.hidden_field :isp_id, :value => @isp.id %>
+		  <%= f.submit %>
+		<% end %>		
+	</div>
 </div>

@@ -8,6 +8,27 @@ class IpRangesController < ApplicationController
 
 	end
 
+	
+	
+	def new
+		@isp = Isp.find(params[:isp_id])		
+		@ip_range = IpRange.new
+	end
+
+	def create
+	  @ip_range = IpRange.new(ip_range_params)
+	  @isp = Isp.find(params[:isp_id])			  		 
+      if @ip_range.save
+        flash[:success] = 'Range added successfulyy'
+        redirect_to isp_ip_ranges_path(@isp)
+	  else
+	  	render 'new'
+      end
+	end
+
+
+
+
 	def edit
 	end
 
@@ -19,28 +40,17 @@ class IpRangesController < ApplicationController
 
 	def destroy
 	end
-	
-	def new
-		@ip_range = IpRange.new
-		@isp = Isp.find(params[:isp_id])		
-	end
 
-	def create
-	  @ip_range = IpRange.new(ip_range_params)
-	 
-	  respond_to do |format|
-	    if @ip_range.save
-	      format.js  {redirect_to isps_path }
-	    else
 
-	    end
-	  end		
-	end
+
+
+
+
 
 	private
 
 	  def ip_range_params
-	    params.require(:ip_range).permit(:ip_range,:note, :isp_id)
+	    params.require(:ip_range).permit(:ip_range,:subnet_mask, :note, :isp_id)
 	  end
 
 	  def prepare_action

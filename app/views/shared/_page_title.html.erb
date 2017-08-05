@@ -6,6 +6,8 @@
 	  <% case title %>
 	   <% when 'ISPs' %>
 	   	 | <%= link_to 'Back to Home page' , root_path , :class => 'btn btn-danger' %>
+			<%= link_to 'Add new isp' , new_isp_path , :class => 'btn btn-success  pull-right'%>
+
 	   <% when 'Requests' %>
 		 | <%= link_to 'Back to Home page' , root_path , :class => 'btn btn-danger' %> 
 	   <% when 'Request New' %>

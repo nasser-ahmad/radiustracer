@@ -10,17 +10,24 @@
         <h4 class="modal-title"><%= isp_i.name %>&nbsp; Ip Ranges:</h4>
       </div>
       <div class="modal-body" style="margin-bottom: 20px;">
-        <ul class="ip_ranges_modal_list">
-        	<% isp_i.ip_ranges.any? do %>
-        		<% isp_i.ip_ranges.each  do |ip_r|%>
-        			<li style="margin-bottom: 10px;">
-        				<%= link_to ip_r.ip_range + '/' + ip_r.subnet_mask , isp_ip_range_path(isp_i,ip_r)  %>
-        			</li>
-        		<% end %>
-        	<% end %>
-        </ul>
+        <div class="row">
+            <p>
+             <ul class="ip_ranges_modal_list">
+                <% isp_i.ip_ranges.any? do %>
+                  <% isp_i.ip_ranges.each  do |ip_r|%>
+                    <li style="margin-bottom: 10px;">
+                      <%= link_to ip_r.ip_range + '/' + ip_r.subnet_mask , isp_ip_range_path(isp_i,ip_r)  %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>         
+            </p>
+        </div>
+        <div class="row">
+            <%= link_to 'New Range' , new_isp_ip_range_path(isp_i) , :class => 'btn btn-success' %>
+        </div>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" >
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>

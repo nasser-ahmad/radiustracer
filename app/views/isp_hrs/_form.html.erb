@@ -1,0 +1,30 @@
+<%= render 'shared/errors' , obj: @isp_hr %>
+
+<div class="row">
+	<div class="well"> 
+		<%= form_for [@isp,@isp_hr]  do |p| %>
+			<%= p.label(:name , "Name")%>
+			<%= p.text_field(:name ) %>
+			<%= p.label(:job, "Job") %>
+			<%= p.text_field(:job) %>
+			<%= p.label(:home_n, "Home")%>
+			<%= p.text_field(:home_n) %>
+			<%= p.label(:home_n2, "Home2")%>
+			<%= p.text_field(:home_n2) %>
+			<%= p.label(:work_n, "Work")%>
+			<%= p.text_field(:work_n) %>
+			<%= p.label(:work_n2, "Work2")%>
+			<%= p.text_field(:work_n2) %>			
+			<%= p.label(:mob_n, "Mobile")%>
+			<%= p.text_field(:mob_n) %>
+			<%= p.label(:mob_n2, "Mobile2")%>
+			<%= p.text_field(:mob_n2) %>
+			<%= p.label(:address, "Address")%>
+			<%= p.text_field(:address)%>
+			<%= p.hidden_field :isp_id, :value => @isp.id%>												
+			<%= p.submit(@isp_hr.new_record? ? "Create Person" : "Update Person info", class: "btn btn-success") %> 
+		<% end %>
+	</div>
+
+</div>
+

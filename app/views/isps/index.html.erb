@@ -1,40 +1,24 @@
 <%= render 'shared/page_title' , title: "ISPs" %>
 
-<div class="well">
-	<h2>ISPs table | <%= link_to 'Add new isp' , new_isp_path , :class => 'btn btn-success'%></h2>
-	<table class="table table-striped table-bordered index_table">
-		<thead>
-			<tr>
-				<th class="table_seq">Seq</th>
-				<th>Name</th>
-				<th>Ranges</th>
-				<th>Options</th>			
-			</tr>			
-		</thead>
-		<tbody>
-			<% @isps.each do |isp| %>
-
-			<tr>
-				<td class="table_seq">
-					<%= isp.id %>  
-				</td>
-				<td>
-					<%= link_to isp.name , isp_path(isp) %>
-				</td>
-				<td>
-					<% # link_to 'Show Ip Ranges', isp_ip_ranges_path(isp) %>
-					<%= link_to '.......' , "#ip_ranges_modal"  , "data-toggle" => "modal"    %>
 
 
-					<%= render 'ip_ranges_modal' , isp_i: isp %>
-				</td>
-				<td class="isp_options">
-					<%= link_to "Edit", edit_isp_path(isp) %>
-				</td>
-			</tr>
-		</tbody>
 
-		<% end %>
-	</table>
-</div>
+<%= will_paginate %>
+<% @isps.each do |isp| %>
+	<div class="row">
+		<div class="col-md-2">
+			<section class="isp_info center">
+				<%= image_tag (isp.id.to_i % 2  == 0) ? "none.jpg" : "none2.jpg" , alt: isp.name , size: '100x100' , style: "border-radius: 10px;" %>
+			</section>
+		</div>
+		<div class="col-md-8 well">
+			<h4><%= link_to isp.name , isp_path(isp) %></h4>
+			<p>
+				
+			</p>
+		</div>
+	</div>
+	<hr/>
+<% end %>
 
+<%= will_paginate %>	

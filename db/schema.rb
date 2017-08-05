@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803120412) do
+ActiveRecord::Schema.define(version: 20170805085124) do
 
   create_table "ip_ranges", force: :cascade do |t|
     t.string "ip_range"
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(version: 20170803120412) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "subnet_mask"
+  end
+
+  create_table "isp_hrs", force: :cascade do |t|
+    t.string "name"
+    t.string "job"
+    t.string "home_n"
+    t.string "home_n2"
+    t.string "work_n"
+    t.string "work_n2"
+    t.string "mob_n"
+    t.string "mob_n2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "isp_id"
+    t.string "address"
   end
 
   create_table "isps", force: :cascade do |t|

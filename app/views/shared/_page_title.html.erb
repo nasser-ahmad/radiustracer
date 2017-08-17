@@ -2,7 +2,7 @@
 
   <div class="page-header">
    <h1>
- 	  <%= title %> 
+ 	  <span style="letter-spacing: -1px; font-weight: bold;"><%= title %> </span>
 	  <% case title %>
 	   <% when 'ISPs' %>
 	   	 | <%= link_to 'Back to Home page' , root_path , :class => 'btn btn-danger' %>
@@ -23,7 +23,9 @@
 	   <% when /INFO/ %>
 	   	 | <%= link_to 'Back to ISPs' , isps_path , :class => 'btn btn-danger' %>	   	 
 	   <% when /Range Edit/ %>
-	   	 | <%= link_to 'Back to Ip Ranges' , isp_ip_ranges_path(@isp) , :class => 'btn btn-danger' %>	   	 
+	   	 | <%= link_to 'Back to Ip Ranges' , isp_ip_ranges_path(@isp) , :class => 'btn btn-danger' %>
+	   	<% when 'New Person' %>
+	   	 | <%= link_to 'Back to Isp' , isp_path(@isp) , :class => 'btn btn-danger' %> 	   	 
 	  <% end %>
    </h1>
   </div>

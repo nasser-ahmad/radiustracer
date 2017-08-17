@@ -122,3 +122,16 @@ table th{
   margin-right: 3px;
   list-style-type: none;
 }
+
+td , .isp_ip_ranges_grid li {
+	color: #595959;
+}
+
+.hr_table td{
+	direction: rtl;
+	text-align: center;
+}
+
+.hr_table{
+	direction: rtl;
+}

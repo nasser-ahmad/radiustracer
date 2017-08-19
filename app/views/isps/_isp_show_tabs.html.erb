@@ -1,0 +1,17 @@
+<ul class="nav nav-tabs" >
+  <li class="active pull-right"><a data-toggle="tab" href="#home">موظفي المزود</a></li>
+  <li class="pull-right"><a data-toggle="tab" href="#menu1">مجالات العناوين</a></li>
+  <li class="pull-right"><a data-toggle="tab" href="#menu2">الملاحظات على المزود</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <%= render 'isps/isp_show_tabs/isp_hr_tab' , :isp => isp %>
+  </div>
+  <div id="menu1" class="tab-pane fade">
+    <%= render 'isps/isp_show_tabs/isp_ip_ranges_tab' , :isp => isp %>
+  </div>
+  <div id="menu2" class="tab-pane fade">
+    <%= render 'isps/isp_show_tabs/isp_notes_tab' , :isp => isp%>
+  </div>
+</div>

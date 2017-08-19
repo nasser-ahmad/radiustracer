@@ -1,33 +1,33 @@
 
 
-  <div class="page-header">
+  <div class="page-header" style="direction: rtl; padding-bottom: 40px;">
    <h1>
- 	  <span style="letter-spacing: -1px; font-weight: bold;"><%= title %> </span>
+   	  <span class="pull-right"> <%= title %> &nbsp;&nbsp;&nbsp;&nbsp;</span> 
 	  <% case title %>
-	   <% when 'ISPs' %>
-	   	 | <%= link_to 'Back to Home page' , root_path , :class => 'btn btn-danger' %>
-			<%= link_to 'Add new isp' , new_isp_path , :class => 'btn btn-success  pull-right'%>
+	   <% when 'المزودات' %>
+	   	 <%= link_to 'رجوع للصفحة الرئيسية' , root_path , :class => 'btn btn-danger pull-left' %>
+			<%= link_to 'إضافة مزود' , new_isp_path , :class => 'btn btn-success pull-right'%>
 
 	   <% when 'Requests' %>
-		 | <%= link_to 'Back to Home page' , root_path , :class => 'btn btn-danger' %> 
+		  <%= link_to 'رجوع للصفحة الرئيسية' , root_path , :class => 'btn btn-danger pull-left' %> 
 	   <% when 'Request New' %>
-		 | <%= link_to 'Back to Requests' , requests_path , :class => 'btn btn-danger' %>
-	   <% when 'ISP EDIT' %>
-	   	 | <%= link_to 'Back to ISPs' , isps_path , :class => 'btn btn-danger' %>
-	   <% when 'New ISP' %>
-	   	 | <%= link_to 'Back to ISPs' , isps_path , :class => 'btn btn-danger' %>
-	   <% when 'ISP Show' %>
-	   	 | <%= link_to 'Back to ISPs' , isps_path , :class => 'btn btn-danger' %>
+		 <%= link_to 'رجوع لصفحة العمليات' , requests_path , :class => 'btn btn-danger pull-left' %>
+	   <% when 'تعديل بيانات مزود' %>
+	   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path , :class => 'btn btn-danger pull-left' %>
+	   <% when 'مزود جديد' %>
+	   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path , :class => 'btn btn-danger pull-left' %>
+	   <% when /بيانات المزود/ %>
+	   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path , :class => 'btn btn-danger pull-left' %>
 	   <% when 'Ip Ranges' %>
-	   	 | <%= link_to 'Back to ISP' , isp_path(@isp) , :class => 'btn btn-danger' %>
+	   	 | <%= link_to 'رجوع لصفحة المزودات' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %>
 	   <% when /INFO/ %>
-	   	 | <%= link_to 'Back to ISPs' , isps_path , :class => 'btn btn-danger' %>	   	 
+	   	 | <%= link_to 'رجوع لصفحة المزودات' , isps_path , :class => 'btn btn-danger pull-left' %>	   	 
 	   <% when /Range Edit/ %>
-	   	 | <%= link_to 'Back to Ip Ranges' , isp_ip_ranges_path(@isp) , :class => 'btn btn-danger' %>
+	   	 | <%= link_to 'رجوع لصفحة مجالات العناوين' , isp_ip_ranges_path(@isp) , :class => 'btn btn-danger pull-left' %>
 	   	<% when 'New Person' %>
-	   	 | <%= link_to 'Back to Isp' , isp_path(@isp) , :class => 'btn btn-danger' %> 	   	 
+	   	 | <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %> 	   	 
 	   	<% when /Note/ %>
-	   	 | <%= link_to 'Back to Isp' , isp_path(@isp) , :class => 'btn btn-danger' %> 	   	 
+	   	 | <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %> 	   	 
 	  <% end %>
    </h1>
   </div>

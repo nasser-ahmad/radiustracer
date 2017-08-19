@@ -1,0 +1,14 @@
+<%= render 'shared/errors' , obj: @isp_note %>
+
+<div class="row">
+	<div class="well"> 
+		<%= form_for [@isp,@isp_note]  do |p| %>
+			<%= p.label(:note , "Note")%>
+			<%= p.text_area(:note , cols: 40, rows: 10, :style => 'rtl') %>
+			<%= p.hidden_field(:isp_id , :value => @isp.id) %>
+			<%= p.submit(@isp_note.new_record? ? "Create Note" : "Update Note info", class: "btn btn-success") %> 
+		<% end %>
+	</div>
+
+</div>
+

@@ -3,7 +3,7 @@ class IspHrsController < ApplicationController
 	before_action :find_isp 
 	
 	def index
-		@isp_hrs = IspHr.all
+		@isp_hrs = IspHr.where(:isp_id => @isp.id)
 	end
 	def new
 		@isp_hr = IspHr.new

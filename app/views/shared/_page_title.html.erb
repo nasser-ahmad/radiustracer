@@ -26,6 +26,8 @@
 	   	 | <%= link_to 'Back to Ip Ranges' , isp_ip_ranges_path(@isp) , :class => 'btn btn-danger' %>
 	   	<% when 'New Person' %>
 	   	 | <%= link_to 'Back to Isp' , isp_path(@isp) , :class => 'btn btn-danger' %> 	   	 
+	   	<% when /Note/ %>
+	   	 | <%= link_to 'Back to Isp' , isp_path(@isp) , :class => 'btn btn-danger' %> 	   	 
 	  <% end %>
    </h1>
   </div>

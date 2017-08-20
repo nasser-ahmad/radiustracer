@@ -1,28 +1,28 @@
 <%= render 'shared/errors' , obj: @isp_hr %>
 
 <div class="row">
-	<div class="well"> 
+	<div class="well" style="direction: rtl;"> 
 		<%= form_for [@isp,@isp_hr]  do |p| %>
-			<%= p.label(:name , "Name")%>
+			<%= p.label(:name , "الاسم")%>
 			<%= p.text_field(:name ) %>
-			<%= p.label(:job, "Job") %>
+			<%= p.label(:job, "العمل") %>
 			<%= p.text_field(:job) %>
-			<%= p.label(:home_n, "Home")%>
+			<%= p.label(:home_n, "رقم المنزل")%>
 			<%= p.text_field(:home_n) %>
-			<%= p.label(:home_n2, "Home2")%>
+			<%= p.label(:home_n2, "رقم المنزل 2")%>
 			<%= p.text_field(:home_n2) %>
-			<%= p.label(:work_n, "Work")%>
+			<%= p.label(:work_n, "رقم العمل")%>
 			<%= p.text_field(:work_n) %>
-			<%= p.label(:work_n2, "Work2")%>
+			<%= p.label(:work_n2, "رقم العمل 2")%>
 			<%= p.text_field(:work_n2) %>			
-			<%= p.label(:mob_n, "Mobile")%>
+			<%= p.label(:mob_n, "رقم الموبايل")%>
 			<%= p.text_field(:mob_n) %>
-			<%= p.label(:mob_n2, "Mobile2")%>
+			<%= p.label(:mob_n2, "رقم الموبايل 2")%>
 			<%= p.text_field(:mob_n2) %>
-			<%= p.label(:address, "Address")%>
+			<%= p.label(:address, "العنوان")%>
 			<%= p.text_field(:address)%>
 			<%= p.hidden_field :isp_id, :value => @isp.id%>												
-			<%= p.submit(@isp_hr.new_record? ? "Create Person" : "Update Person info", class: "btn btn-success") %> 
+			<%= p.submit(@isp_hr.new_record? ? "إضافة" : "تعديل", class: "btn btn-success") %> 
 		<% end %>
 	</div>
 

@@ -5,18 +5,19 @@
 
 <%= will_paginate %>
 <% @isps.each do |isp| %>
-	<div class="row">
-		<div class="col-md-2">
-			<section class="isp_info center">
-				<%= image_tag (isp.id.to_i % 2  == 0) ? "none.jpg" : "none2.jpg" , alt: isp.name , size: '100x100' , style: "border-radius: 10px;" %>
-			</section>
-		</div>
-		<div class="col-md-8 well">
+	<div class="row" style="direction: rtl;">
+
+		<div class="col-md-9 well col-md-offset-1" style="direction: rtl;">
 			<h4><%= link_to isp.name , isp_path(isp) %></h4>
 			<p>
 				
 			</p>
 		</div>
+		<div class="col-md-2">
+			<section class="isp_info center">
+				<%= image_tag (isp.id.to_i % 2  == 0) ? "none.jpg" : "none2.jpg" , alt: isp.name , size: '100x100' , style: "border-radius: 10px;" %>
+			</section>
+		</div>	
 	</div>
 	<hr/>
 <% end %>

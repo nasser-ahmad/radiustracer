@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :requests, :only => [:show , :new, :create , :index]
-  resources :isps, :only => [:show , :new, :create , :index , :edit , :destroy] do
-  	resources :ip_ranges , :isp_hrs , :notes
+
+  resources :isps,  :only => [:show , :new, :create , :index , :edit , :destroy] do
+  	resources :ip_ranges , shallow: true do
+  		resources :ip_range_notes
+  	end
+  	resources :isp_hrs , :notes
   end
 
 

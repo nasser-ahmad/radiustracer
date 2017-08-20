@@ -2,7 +2,7 @@ require 'resolv'
 class IpRange < ActiveRecord::Base
 
 	belongs_to :isp
-	
+	has_many :ip_range_notes
 	self.table_name = "ip_ranges"
 
 	validates :ip_range, :format => { 

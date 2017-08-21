@@ -26,7 +26,7 @@
 		   <% when /معلومات/ %>
 		   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path , :class => 'btn btn-danger pull-left' %>	   	 
 		   <% when /مجال/ %>
-		   	 <%= link_to 'رجوع لصفحة المزود' , isp_ip_ranges_path(@isp) , :class => 'btn btn-danger pull-left' %>
+		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %>
 		   	<% when 'موظف جديد' %>
 		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %> 	   	 
 		   	<% when /ملاحظة/ %>

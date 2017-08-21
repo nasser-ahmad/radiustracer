@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820215731) do
+ActiveRecord::Schema.define(version: 20170821104744) do
 
   create_table "ip_range_notes", force: :cascade do |t|
     t.string "note"
-    t.integer "ip_range"
+    t.integer "ip_range_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ip_ranges", force: :cascade do |t|

@@ -1,4 +1,4 @@
-class IpRangeNote < ActiveModel::Base
+class IpRangeNote < ActiveRecord::Base
 
 	belongs_to :ip_range
 end 

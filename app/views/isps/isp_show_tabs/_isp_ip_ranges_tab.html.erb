@@ -5,7 +5,7 @@
 		<ul class="isp_ip_ranges_grid">
 			<% isp.ip_ranges.each do |ip_r| %>
 				<li>
-					<%= link_to ip_r.ip_range + '/' + ip_r.subnet_mask , isp_ip_range_path(@isp, ip_r) %>
+					<%= link_to ip_r.ip_range + '/' + ip_r.subnet_mask , ip_range_path(ip_r) %>
 				</li>
 			<% end %>				
 		</ul>

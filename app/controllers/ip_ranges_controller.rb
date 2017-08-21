@@ -1,6 +1,6 @@
 class IpRangesController < ApplicationController
 
-    before_action :prepare_action, only: [:edit, :update, :delete , :destroy]
+    before_action :prepare_action, only: [:show, :edit, :update, :delete , :destroy]
 
 	def index
 		@isp = Isp.find(params[:isp_id])
@@ -8,7 +8,9 @@ class IpRangesController < ApplicationController
 
 	end
 
-	
+	def show
+
+	end	
 	
 	def new
 		@isp = Isp.find(params[:isp_id])		
@@ -54,7 +56,7 @@ class IpRangesController < ApplicationController
 	  end
 
 	  def prepare_action
-		@isp = Isp.find(params[:isp_id])		
 		@ip_range = IpRange.find(params[:id])
+		@isp = @ip_range.isp_id
 	  end
 end

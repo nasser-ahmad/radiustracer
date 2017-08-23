@@ -1,17 +1,17 @@
-<%= render 'shared/page_title' , title: "Requests" %>
+<%= render 'shared/page_title' , title: "العمليات" %>
 <div class="row"">	
-	<div class="col-lg-12 well">
-		<h2>Requests table | <%= link_to 'Add new request' , new_request_path , :class => 'btn btn-success'%></h2>		             
+	<div class="col-lg-12 well" style="direction: rtl;">
+		<h2>جدول العمليات | <%= link_to 'إضافة عملية جديدة' , new_request_path , :class => 'btn btn-success'%></h2>		             
 		  <table class="table  table-bordered table-striped ">
 		    <thead>
 		      <tr>
-		        <th>Isp</th>
-		        <th>public ip</th>
-		        <th>router ip</th>
-		        <th>private ip</th>
-		        <th>assign date</th>
-		        <th>release date</th>
-		        <th>last update</th>
+		        <th>المزود</th>
+		        <th>العنوان العام</th>
+		        <th>عنوان الموجه</th>
+		        <th>العنوان الخاص</th>
+		        <th>تاريخ الاسناد</th>
+		        <th>تاريخ التحرير</th>
+		        <th>آخر تحديث</th>
 		      </tr>
 		    </thead>
 		    <tbody>

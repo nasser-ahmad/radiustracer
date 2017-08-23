@@ -1,21 +1,21 @@
 <%= render 'shared/errors' , obj: @request %>
 
-<%= render 'shared/page_title' , title: "Request New" %>
+<%= render 'shared/page_title' , title: "عملية جديدة" %>
 
 <div class="row">
-	<div class="well col-md-6 col-md-offset-3">
+	<div class="well col-md-6 col-md-offset-3" style="direction: rtl;">
 		<%= form_for @request , :url => { :action => "create" , :request_ip => request.remote_ip }     do  |f| %>
-		  <%= f.label(:isp_id, "ISP name") %>
+		  <%= f.label(:isp_id, "اسم المزود") %>
 		  <%= f.select :isp_id,  options_for_select(@isps.collect{ |u| [u.name , u.id]})  %>
-		  <%= f.label(:private_ip) %>
+		  <%= f.label(:private_ip, 'العنوان الخاص') %>
 		  <%= f.text_field(:private_ip) %>
-		  <%= f.label(:router_ip) %>
+		  <%= f.label(:router_ip, 'عنوان الموجه') %>
 		  <%= f.text_field(:router_ip) %>		  
-		  <%= f.label(:assign_date) %>
+		  <%= f.label(:assign_date, 'تاريخ الاسناد') %>
 		  <%= f.datetime_select :assign_date , {:default => Time.now} %>
-		  <%= f.label(:release_date) %>
+		  <%= f.label(:release_date, 'تاريخ التحرير') %>
 		  <%= f.datetime_select :release_date , {:default => Time.now} %>
-		  <%= f.submit("Add" , :id => 'request_submit' , :class => 'btn btn-success') %>
+		  <%= f.submit("إضافة" , :id => 'request_submit' , :class => 'btn btn-success') %>
 		<% end %>
 	</div>
 </div>

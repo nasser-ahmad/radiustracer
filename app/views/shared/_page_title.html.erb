@@ -15,23 +15,24 @@
 			 <%= link_to 'رجوع لصفحة العمليات' , requests_path , :class => 'btn btn-danger pull-left' %>
 		   <% when 'تعديل بيانات مزود' %>
 		   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path , :class => 'btn btn-danger pull-left' %>
-		   <% when 'مزود جديد' %>
-		   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path , :class => 'btn btn-danger pull-left' %>
-		   <% when /مزود/ %>
+		   <% when /مزود / %>
 		   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path , :class => 'btn btn-danger pull-left' %>
 		   <% when /الموظف/ %>
 		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %>
-		   <% when 'مجالات العناوين' %>
-		   	 <%= link_to 'رجوع لصفحة المزودات' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %>
+		   <% when 'عناوين المزودات' %>
+		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %>
 		   <% when /معلومات/ %>
 		   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path , :class => 'btn btn-danger pull-left' %>	   	 
-		   <% when /مجال/ %>
+		   <% when /عناوين المزود/ %>
 		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %>
 		   	<% when 'موظف جديد' %>
 		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %> 	   	 
-		   	<% when /ملاحظة/ %>
+		   	<% when /ملاحظة مزود/ %>
 		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %> 
-
+		   	<% when /مجال/ %>
+		   	 <%= link_to 'رجوع ' , isp_path(@ip_range.isp_id) , :class => 'btn btn-danger pull-left' %> 
+		   	<% when 'تعديل العناوين' %>
+		   	 <%= link_to 'رجوع ' , isp_path(@ip_range.isp_id) , :class => 'btn btn-danger pull-left' %>  
 		  <% end %>
 	   </h1>
 	  </div>

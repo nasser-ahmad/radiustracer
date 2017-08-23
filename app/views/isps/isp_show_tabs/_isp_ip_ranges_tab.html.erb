@@ -1,13 +1,26 @@
 <div class="row">
-	<div class="well col-lg-12">
+	<div class="well col-lg-12" style="direction: rtl;">
 		<h2 style="text-align: center;">مجالات العناوين </h2>
 		<h4 style="text-align: right;"><%= link_to 'مجال عناوين جديد', new_isp_ip_range_path(isp) %></h4>
-		<ul class="isp_ip_ranges_grid">
-			<% isp.ip_ranges.each do |ip_r| %>
-				<li>
-					<%= link_to ip_r.ip_range + '/' + ip_r.subnet_mask , ip_range_path(ip_r) %>
-				</li>
-			<% end %>				
-		</ul>
+		<table class="table table-bordered table_ip_r">
+			<thead>
+				<th>المجال</th>
+				<th>تاريخ الإضافة</th>
+				<th>تاريخ آخر تعديل</th>
+				<th>خيايرات</th>
+			</thead>
+			<tbody>
+				<% isp.ip_ranges.each do |ip_r| %>
+				<tr>
+					<td><%= link_to ip_r.ip_range + '/' + ip_r.subnet_mask , ip_range_path(ip_r) %></td>
+					<td><%= ip_r.created_at%></td>
+					<td><%= ip_r.updated_at%></td>
+					<td><%= link_to 'تعديل' , edit_ip_range_path(ip_r) %> &nbsp;&nbsp; <%= link_to 'حذف' , ip_range_path(ip_r), data: {:confirm => 'متأكد?'}, :method => :delete %>  </td>
+				</tr>
+				<% end %>
+			</tbody>
+
+		</table>
+		
 	</div>
 </div>

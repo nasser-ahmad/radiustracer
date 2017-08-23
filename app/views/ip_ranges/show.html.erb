@@ -1,17 +1,19 @@
-<%= render 'shared/page_title' , title: "مجال العنواين" %>
+<%= render 'shared/page_title' , title: "مجالات العناوين"  %>
 
-<div class="row">
+<div class="row" style="direction: rtl;">
 	<div class="col-lg-12 well">
-		<table class="table">
+	<h3 style="text-align: center;">  <%= @ip_range.ip_range + '/' + @ip_range.subnet_mask %></h3>
+		<%= link_to "ملاحظة جديدة" , new_ip_range_ip_range_note_path(@ip_range, IpRangeNote.new) , :class => 'btn btn-success' %>
+		<table class="table table-bordered table_ip_r">
 			<thead>
-				<th>Notes</th>
-				<th>Last Update</th>
+				<th>الملاحظة</th>
+				<th>تاريخ آخر تعديل</th>
 			</thead>
 			<tbody>
 				<% @ip_range.ip_range_notes.each do |n| %>
 					<tr>
 						<td><%= n.note %></td>
-						<td><%= n.last_update %> </td>
+						<td><%= n.updated_at %> </td>
 					</tr>
 				<% end %>
 			</tbody>

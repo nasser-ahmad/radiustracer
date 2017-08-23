@@ -2,7 +2,7 @@ class IspsController < ApplicationController
 
 
 	def index
-		@isps = Isp.paginate(:page => params[:page], per_page: 10)
+		@isps = Isp.paginate(:page => params[:page], per_page: 6)
 	end
 
 	def show
@@ -16,7 +16,7 @@ class IspsController < ApplicationController
 	def create
 		@isp = Isp.new(isp_params)
 		if @isp.save
-			flash[:notice]= "ISP added successfully!!!"
+			flash[:success]= "ISP added successfully!!!"
 			redirect_to isps_path
 		else
 			render 'new'
@@ -32,7 +32,7 @@ class IspsController < ApplicationController
 		@isp = Isp.find(params[:id])
 
 		if @isp.update(isp_params)
-			flash[:notice]= "ISP updated successfully!!!"
+			flash[:success]= "ISP updated successfully!!!"
 			redirect_to isp_path(@isp)
 		else
 			render 'edit'

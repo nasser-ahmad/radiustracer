@@ -10,8 +10,8 @@
 
   <body style="background-color: #fff7e6;">
   	<%= render 'layouts/navigation' %>
-    <div class="container">
-    	<%render 'layouts/messages' %>
+    <div class="container" style="direction: rtl;">
+    	<%= render 'layouts/messages' %>
     	<%= yield %>
     </div>
     <%= render 'layouts/footer' %>

@@ -22,7 +22,7 @@ class IpRangesController < ApplicationController
 	  @isp = Isp.find(params[:isp_id])			  		 
       if @ip_range.save
         flash[:success] = 'Range added successfulyy'
-        redirect_to isp_ip_ranges_path(@isp)
+        redirect_to isp_path(@isp)
 	  else
 	  	render 'new'
       end

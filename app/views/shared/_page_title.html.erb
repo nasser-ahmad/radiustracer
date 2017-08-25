@@ -32,7 +32,9 @@
 		   	<% when /مجال/ %>
 		   	 <%= link_to 'رجوع ' , isp_path(@ip_range.isp_id) , :class => 'btn btn-danger pull-left' %> 
 		   	<% when 'تعديل العناوين' %>
-		   	 <%= link_to 'رجوع ' , isp_path(@ip_range.isp_id) , :class => 'btn btn-danger pull-left' %>  
+		   	 <%= link_to 'رجوع ' , isp_path(@ip_range.isp_id) , :class => 'btn btn-danger pull-left' %> 
+		   	<% when 'حساب جديد' %>
+		   	 <%= link_to 'رجوع للصفحة الرئيسية ' , root_path , :class => 'btn btn-danger pull-left' %>   
 		  <% end %>
 	   </h1>
 	  </div>

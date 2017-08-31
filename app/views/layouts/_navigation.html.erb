@@ -13,7 +13,7 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li><%= link_to 'Profile' , current_user %></li>
-							<li><%= link_to 'إعدادات' , '#' %></li>
+							<li><%= link_to 'إعدادات' , edit_user_path(current_user) %></li>
 							<li class="divider"></li>
 							<li><%= link_to ' تسجيل خروج' , logout_path , method: :delete %></li>
 						</ul>

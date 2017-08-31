@@ -1,5 +1,6 @@
 class IpRangeNotesController < ApplicationController
 
+	before_action :logged_in_user
 	before_action :find_ip_range
 	
 	def index

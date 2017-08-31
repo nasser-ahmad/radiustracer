@@ -21,3 +21,11 @@ information of that in local database
 
 	 For 2-8-2017 :
 	 	1. i must change the isp new view ( seperate ip_range control from the isp control will be better idea, so new and edit action will share same form and i should add seperate way to add ip_ranges seperatly ...) 
+
+
+	for 31-8-2017 : 
+	 	1. finishing the authentication and authorization.
+	 	2. adding search facilities.
+	 	3. ensuring the correct working of all the routes of the application.
+	 	4. training of how to upload to the server.
+	 	5. finish

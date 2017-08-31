@@ -1,6 +1,6 @@
 class IpRangesController < ApplicationController
-
-    before_action :prepare_action, only: [:show, :edit, :update, :delete , :destroy]
+	before_action :logged_in_user 
+    before_action  :prepare_action, only: [:show, :edit, :update, :delete , :destroy]
 
 	def index
 		@isp = Isp.find(params[:isp_id])

@@ -21,7 +21,7 @@
 	background-color: green;
 	text-decoration: none;
 }
-#nav_user {
+#nav_user , #nav_user2 {
 	font-size: 1.1em;	
 }
 
@@ -43,7 +43,7 @@ body {
 
 }
 
-input , textarea {
+.general-form input {
 	
 	padding-bottom: 5px;
 	border: 1px solid #2d2d2d;
@@ -53,9 +53,26 @@ input , textarea {
 	margin-left: 5px;
 	width: 100%;
 	text-align: center;
+	height: auto !important;
 }
+
+.general-form textarea {
+	
+	padding-bottom: 5px;
+	border: 1px solid #2d2d2d;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	margin-left: 5px;
+	width: 100%;
+	text-align: center;
+	height: auto !important;
+}
+
+
 .release_date , .assign_date {
 	width: 100%;
+	height: auto !important;
 }
 #request_isp_id{
 	width: 100%;
@@ -69,10 +86,20 @@ select {
 	margin-left: 5px;
 	margin-right: 10px;
 	font-size: 1.3em;
+	height: auto !important;	
 }
-input {
-	height: auto !important;
-}
+
+
+.search-form{
+	padding-right: 50px;
+	width: 400px;
+	margin-right: 250px;
+ }
+ .search-form input{
+ 	height: 40px;
+ 	color: green;
+ 	font-size: 0.8em;	
+ }
 
 .home-button{
 	height: 250px;

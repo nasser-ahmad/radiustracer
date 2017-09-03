@@ -8,6 +8,17 @@ class IpRangesController < ApplicationController
 
 	end
 
+	def search
+		@ip_ranges = IpRange.ip_range_search(params[:r_term])
+		respond_to do |format|
+			if !@ip_ranges.nil?
+				format.js
+			else
+				
+			end
+		end
+	end
+
 	def show
 
 	end	
@@ -52,7 +63,7 @@ class IpRangesController < ApplicationController
 	private
 
 	  def ip_range_params
-	    params.require(:ip_range).permit(:ip_range,:subnet_mask, :note, :isp_id)
+	    params.require(:ip_range).permit(:ip_range,:subnet_mask, :note, :isp_id , :r_term)
 	  end
 
 	  def prepare_action

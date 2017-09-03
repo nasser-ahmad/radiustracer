@@ -14,4 +14,12 @@ class IpRange < ActiveRecord::Base
     validates :ip_range , presence: true
     validates :subnet_mask , presence: true
 
+
+    def self.ip_range_search(r_term)
+		if r_term
+			where('ip_range = ?', "#{r_term}")
+		else
+			nil
+		end
+	end
 end

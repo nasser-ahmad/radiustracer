@@ -2,7 +2,7 @@
 
 <div class="row">
 	<div class="well" style="direction: rtl;"> 
-		<%= form_for [@isp,@isp_hr]  do |p| %>
+		<%= form_for([@isp,@isp_hr] , html: {class:  'general-form'}) do |p| %>
 			<%= p.label(:name , "الاسم")%>
 			<%= p.text_field(:name ) %>
 			<%= p.label(:job, "العمل") %>

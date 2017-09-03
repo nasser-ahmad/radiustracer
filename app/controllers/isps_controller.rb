@@ -2,7 +2,7 @@ class IspsController < ApplicationController
 
 	before_action :logged_in_user
 	def index
-		@isps = Isp.paginate(:page => params[:page], per_page: 6)
+		@isps = Isp.search(params[:i_term]).paginate(:page => params[:page], per_page: 6)
 	end
 
 	def show
@@ -49,6 +49,6 @@ class IspsController < ApplicationController
 
 		def isp_params
 
-			params.require(:isp).permit(:name , :ranges)
+			params.require(:isp).permit(:name , :ranges , :i_term , :r_term)
 		end
 end

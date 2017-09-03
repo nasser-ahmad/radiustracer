@@ -2,11 +2,12 @@
 
 <div class="row">
 	<div class="col-lg-6 col-lg-offset-3">
-		<%= form_for [@isp,@ip_range] do |f| %><br>
+		<%= form_for([@isp,@ip_range] , html: {class:  'general-form'}) do |f| %><br>
+		  <%= f.label :ip_range , 'المجال' %><br>
 		  <%= f.text_field :ip_range %>
-		  <%= f.label :subnet_mask %><br>
+		  <%= f.label :subnet_mask , 'قناع الشبكة' %><br>
 		  <%= f.text_field :subnet_mask %>
-		  <%= f.label :note %>
+		  <%= f.label :note , 'ملاحظة'%>
 		  <%= f.text_field :note %>
 		  <%= f.hidden_field :isp_id, :value => @isp.id %>
 		  <%= f.submit(@ip_range.new_record? ? "إضافة" : "تعديل", class: "btn btn-success") %>

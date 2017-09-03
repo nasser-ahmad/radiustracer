@@ -2,12 +2,12 @@
 
 <div class="row">
 	<div class="well"> 
-		<%= form_for @isp  do |isp| %>
-			<%= isp.label(:name , "ISP Name")%>
+		<%= form_for(@isp , html: {class:  'general-form'})  do |isp| %>
+			<%= isp.label(:name , "اسم المزود")%>
 			<%= isp.text_field(:name ) %>
-			<%= isp.label(:note, "Notes") %>
+			<%= isp.label(:note, "الملاحظات") %>
 			<%= isp.text_field(:note) %>
-			<%= isp.submit(@isp.new_record? ? "Create ISP" : "Update ISP info", class: "btn btn-success") %> 
+			<%= isp.submit(@isp.new_record? ? "إنشاء مزود" : "تحديث معلومات مزود", class: "btn btn-success") %> 
 		<% end %>
 	</div>
 

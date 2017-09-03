@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="well col-lg-12" style="direction: rtl;">
 		<h2 style="text-align: center;">مجالات العناوين </h2>
-		<h4 style="text-align: right;"><%= link_to 'مجال عناوين جديد', new_isp_ip_range_path(isp) %></h4>
+		<h4 style="text-align: right;"><%= link_to 'مجال عناوين جديد', new_isp_ip_range_path(isp, :i_term => params[:i_term]) %></h4>
 		<table class="table table-bordered table_ip_r">
 			<thead>
 				<th>المجال</th>

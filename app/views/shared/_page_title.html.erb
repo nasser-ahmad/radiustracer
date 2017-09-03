@@ -7,34 +7,40 @@
 		  <% case title %>
 		   <% when 'المزودات' %>
 		   	 <%= link_to 'رجوع للصفحة الرئيسية' , root_path , :class => 'btn btn-danger pull-left' %>
-				<%= link_to 'إضافة مزود' , new_isp_path , :class => 'btn btn-success pull-right'%>
+				<%= link_to 'إضافة مزود' , new_isp_path , :class => 'btn btn-success pull-right' , :style => 'margin-left: 50px;'%>
+				<%= form_tag(isps_path , :method => :get , :class => 'search-form' , style:  'height: 45px;')  do %>
+					<%= text_field_tag :i_term ,'' , style:  'width: 200px; padding-right: 50px;'  %>
+					<%= submit_tag 'بحث' , :name => nil %>
+				<% end %>
 
 		   <% when 'العمليات' %>
 			  <%= link_to 'رجوع للصفحة الرئيسية' , root_path , :class => 'btn btn-danger pull-left' %> 
 		   <% when 'عملية جديدة' %>
 			 <%= link_to 'رجوع لصفحة العمليات' , requests_path , :class => 'btn btn-danger pull-left' %>
 		   <% when 'تعديل بيانات مزود' %>
-		   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path , :class => 'btn btn-danger pull-left' %>
+		   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path(:i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %>
 		   <% when /مزود / %>
-		   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path , :class => 'btn btn-danger pull-left' %>
+		   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path(:i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %>
 		   <% when /الموظف/ %>
-		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %>
+		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp, :i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %>
 		   <% when 'عناوين المزودات' %>
-		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %>
+		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp , :i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %>
 		   <% when /معلومات/ %>
-		   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path , :class => 'btn btn-danger pull-left' %>	   	 
+		   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path(:i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %>	   	 
 		   <% when /عناوين المزود/ %>
-		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %>
+		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp, :i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %>
 		   	<% when 'موظف جديد' %>
-		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %> 	   	 
+		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp ,:i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %> 	   	 
 		   	<% when /ملاحظة مزود/ %>
-		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp) , :class => 'btn btn-danger pull-left' %> 
+		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp ,:i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %> 
 		   	<% when /مجال/ %>
-		   	 <%= link_to 'رجوع ' , isp_path(@ip_range.isp_id) , :class => 'btn btn-danger pull-left' %> 
+		   	 <%= link_to 'رجوع ' , isp_path(@ip_range.isp_id, :i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %> 
 		   	<% when 'تعديل العناوين' %>
-		   	 <%= link_to 'رجوع ' , isp_path(@ip_range.isp_id) , :class => 'btn btn-danger pull-left' %> 
+		   	 <%= link_to 'رجوع ' , isp_path(@ip_range.isp_id ,:i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %> 
 		   	<% when 'حساب جديد' %>
 		   	 <%= link_to 'رجوع للصفحة الرئيسية ' , root_path , :class => 'btn btn-danger pull-left' %>   
+		   	<% when 'عناوين جديدة' %>
+		   	 <%= link_to 'رجوع لصفحة المزود ' , isp_path(@isp ,:i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %>   
 		  <% end %>
 	   </h1>
 	  </div>

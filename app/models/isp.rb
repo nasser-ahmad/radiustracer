@@ -8,7 +8,13 @@ class Isp < ActiveRecord::Base
 
 
 
-
+	def self.search(term)
+		if term
+			where('name LIKE ?', "%#{term}%")
+		else
+			all
+		end
+	end
 
 	def is_ip? ip
 		if ipv4? ip

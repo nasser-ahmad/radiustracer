@@ -2,7 +2,7 @@
 
 <div class="row">
 	<div class="well"> 
-		<%= form_for [@ip_range,@ip_range_note]  do |p| %>
+		<%= form_for([@ip_range,@ip_range_note] ,html: {class:  'general-form'}) do |p| %>
 			<%= p.label(:note , "ملاحظة")%>
 			<%= p.text_area(:note , cols: 40, rows: 10, :style => 'rtl') %>
 			<%= p.hidden_field(:ip_range_id , :value => @ip_range.id) %>

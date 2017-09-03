@@ -4,11 +4,12 @@
 
 
 <%= will_paginate %>
+
 <% @isps.each do |isp| %>
 	<div class="row" style="direction: rtl;">
 
 		<div class="col-md-9 well col-md-offset-1" style="direction: rtl;">
-			<h4><%= link_to isp.name , isp_path(isp) %></h4>
+			<h4><%= link_to isp.name , isp_path(isp , :i_term => params[:i_term]) %></h4>
 			<p>
 				
 			</p>

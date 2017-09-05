@@ -9,13 +9,9 @@ class IpRangesController < ApplicationController
 	end
 
 	def search
-		@ip_ranges = IpRange.ip_range_search(params[:r_term])
+		@ip_ranges = IpRange.ip_range_search(params[:ip_term])
 		respond_to do |format|
-			if !@ip_ranges.nil?
-				format.js
-			else
-				
-			end
+			format.js
 		end
 	end
 
@@ -46,6 +42,13 @@ class IpRangesController < ApplicationController
 	end
 
 	def update
+		@ip_range = IpRange.find(params[:id])
+		if @ip_range.update(ip_range_params)
+			flash[:success] = 'IpRange updated successfuly'
+			redirect_to isp_path(@isp)
+		else
+			render 'edit'
+		end
 	end
 
 	def delete
@@ -63,11 +66,11 @@ class IpRangesController < ApplicationController
 	private
 
 	  def ip_range_params
-	    params.require(:ip_range).permit(:ip_range,:subnet_mask, :note, :isp_id , :r_term)
+	    params.require(:ip_range).permit(:ip_range,:subnet_mask, :note, :isp_id , :ip_term)
 	  end
 
 	  def prepare_action
 		@ip_range = IpRange.find(params[:id])
-		@isp = @ip_range.isp_id
+		@isp = Isp.find(@ip_range.isp_id)
 	  end
 end

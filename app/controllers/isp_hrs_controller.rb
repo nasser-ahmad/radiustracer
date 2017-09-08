@@ -14,7 +14,7 @@ class IspHrsController < ApplicationController
 		@isp_hr = IspHr.new(hr_params)
 
 		if @isp_hr.save
-			flash[:success] = "HR info added successfuly"
+			flash[:success] = "تمت إضافة معلومات موظف جديد بنجاح"
 			redirect_to isp_path(@isp)
 		else
 			render 'new'
@@ -28,7 +28,7 @@ class IspHrsController < ApplicationController
 	def update
 		@isp_hr = IspHr.find(params[:id])
 		if @isp_hr.update(hr_params)
-			flash[:success] = 'HR updated successfuly'
+			flash[:success] = 'تم تعديل بيانات الموظف بنجاح'
 			redirect_to isp_path(@isp)
 		else
 			render 'edit'
@@ -41,7 +41,7 @@ class IspHrsController < ApplicationController
 
 	def destroy
 		if IspHr.find(params[:id]).destroy
-			flash[:success] = 'HR deleted successfuly'
+			flash[:success] = 'تم حذف بيانات الموظف بنجاح'
 			redirect_to isp_path(@isp)
 		end
 	end

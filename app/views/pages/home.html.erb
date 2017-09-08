@@ -16,7 +16,8 @@
 <div style="background-color: #fff7e6; border: 1px solid black;" class="row jumbotron home_jumpo">
 	<h3 style=" text-align: center; margin-top: 0px;">البحث عن عنوان رقمي</h3>
 	<div class="col-lg-3 pull-right" style="margin-top: 35px;">
-		<%= form_for(IpSearch.new() , :url => search_path , :class => 'general-form', remote:  :true, :validate=>true) do |f| %>
+		<%= render 'shared/errors' , :obj => @ip_search %>
+		<%= form_for(@ip_search , :url => search_path , :class => 'general-form', remote:  :true, :validate=>true) do |f| %>
   			<%= f.label(:ip_term, 'بحث عن العنوان الرقمي') %>		
 			<%= f.text_field(:ip_term) %>
 			<%= f.submit('بحث' , name: nil) %>

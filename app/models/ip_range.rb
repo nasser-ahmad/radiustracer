@@ -20,16 +20,4 @@ class IpRange < ActiveRecord::Base
     validates :ip_range , presence: true
     validates :subnet_mask , presence: true
 
-
-
-	def self.ip_range_search(ip_term)
-		ip_ranges = []
-		ip_b = IPAddr.new(ip_term) 
-		IpRange.all.each { |ip_r| 
-			ip_a = IPAddr.new(ip_r.ip_range)
-			ip_a.mask(ip_r.subnet_mask)
-			ip_ranges << ip_r if ip_a.include?(ip_b)
-		}
-		return ip_ranges
-	end
 end

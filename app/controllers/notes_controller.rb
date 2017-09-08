@@ -12,7 +12,6 @@ class NotesController < ApplicationController
 
 	def create
 		@isp_note = Note.new(note_params)
-
 		if @isp_note.save
 			flash[:success] = "Note info added successfuly"
 			redirect_to isp_path(@isp)

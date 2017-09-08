@@ -1,1 +1,7 @@
-$('.ip_result_div').html("<%= escape_javascript render(@ip_ranges) %>");
+<% if @ip_searchh.errors.any? %>
+	alert("ERROR(S): <%= j @ip_searchh.errors.full_messages.join('; ') %>")
+<% else %>
+	$('.ip_result_div').html("<%= escape_javascript render(@ip_ranges) %>");
+<% end %>
+
+

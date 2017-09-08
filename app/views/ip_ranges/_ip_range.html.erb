@@ -1,4 +1,4 @@
 	<div class="well" style="font-size: 1.2em;"> 
-		العنوان الرقمي عائد لمزود: <%= ip_range.isp.name  %>&nbsp;&nbsp;
+		العنوان الرقمي عائد لمزود: <%= link_to ip_range.isp.name , isp_path(ip_range.isp) , :class => 'btn btn-success'  %>&nbsp;&nbsp;
 		ضمن المجال <%= ip_range.ip_range + '/' + ip_range.subnet_mask %>
     </div>

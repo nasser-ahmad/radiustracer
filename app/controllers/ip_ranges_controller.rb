@@ -8,13 +8,6 @@ class IpRangesController < ApplicationController
 
 	end
 
-	def search
-		@ip_ranges = IpRange.ip_range_search(params[:ip_term])
-		respond_to do |format|
-			format.js
-		end
-	end
-
 	def show
 
 	end	
@@ -28,7 +21,7 @@ class IpRangesController < ApplicationController
 	  @ip_range = IpRange.new(ip_range_params)
 	  @isp = Isp.find(params[:isp_id])			  		 
       if @ip_range.save
-        flash[:success] = 'Range added successfulyy'
+        flash[:success] = 'تمت إضافة المجال بنجاح'
         redirect_to isp_path(@isp)
 	  else
 	  	render 'new'
@@ -44,7 +37,7 @@ class IpRangesController < ApplicationController
 	def update
 		@ip_range = IpRange.find(params[:id])
 		if @ip_range.update(ip_range_params)
-			flash[:success] = 'IpRange updated successfuly'
+			flash[:success] = 'تم تعديل المجال بنجاح'
 			redirect_to isp_path(@isp)
 		else
 			render 'edit'

@@ -4,4 +4,5 @@ class PagesController < ApplicationController
 		@ip_search = IpSearch.new		
 	end
 
+	
 end

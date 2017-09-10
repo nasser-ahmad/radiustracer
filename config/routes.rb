@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   post '/search', to: 'ip_searches#create'
+
+  get '/req_search' , to:'requests#search'
 end

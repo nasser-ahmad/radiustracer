@@ -1,4 +1,5 @@
 require 'ipaddr'
+require 'date'
 class RequestsController < ApplicationController
 
 	before_action :logged_in_user
@@ -24,15 +25,18 @@ class RequestsController < ApplicationController
 		isp = Isp.find(@request.isp_id)
 		if check_isp_range(isp.ip_ranges) 				
 			@request.public_ip = public_ip
-			if @request.save			
+			if @request.save
+				ActionLog.create(username: current_user.name , action_type: 1 , finished: :true, notice: 'تمت إضافة العملية بنجاح !!!')			
 				flash[:success] = "تمت إضافة العملية بنجاح !!!"
 				redirect_to requests_path
 			else
+				ActionLog.create(username: current_user.name , action_type: 1 , finished: :false, notice: 'خطأ في إضافة عملية جديدة!!')
 				flash[:danger] = "خطأ في إضافة عملية جديدة!!"
 				@isps = Isp.all
 				render 'new'
 			end
 		else
+			ActionLog.create(username: current_user.name , action_type: 1 , finished: :false, notice: 'العنوان الرقمي لا ينتمي للمزود المذكور')
 			flash[:danger] = "العنوان الرقمي لا ينتمي للمزود المذكور"
 			@isps = Isp.all
 			render 'new'
@@ -46,7 +50,7 @@ class RequestsController < ApplicationController
 				format.js
 			end
 		else
-			d_time = params[:from_date].to_date
+			d_time = DateTime.parse(params[:from_date])
 			@requests = Request.created_between(d_time.beginning_of_day,d_time.end_of_day)
 
 			respond_to do |format|

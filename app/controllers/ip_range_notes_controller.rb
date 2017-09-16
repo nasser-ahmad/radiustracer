@@ -14,7 +14,9 @@ class IpRangeNotesController < ApplicationController
 		@ip_range_note = IpRangeNote.new(note_params)
 
 		if @ip_range_note.save
-			flash[:success] = "Ip Range Note info added successfuly"
+			notice = 'تمت إضافة ملاحظة ' + @ip_range_note.note + ' على المزود ' + @ip_range_note.ip_range.ip_range + ' بنجاح'
+			ActionLog.create(username: current_user.name , action_type: 1 , finished: :true, notice: notice)
+			flash[:success] = "تمت إضافة مالحظة جديدة على مجال عناوين المزود"
 			redirect_to ip_range_path(@ip_range)
 		else
 			render 'new'
@@ -28,7 +30,9 @@ class IpRangeNotesController < ApplicationController
 	def update
 		@ip_range_note = IpRangeNote.find(params[:id])
 		if @ip_range_note.update(note_params)
-			flash[:success] = 'Ip Range Note updated successfuly'
+			notice = 'تم تحديث ملاحظة على مجال العنواين ' + @ip_range_note.ip_range.ip_range
+			ActionLog.create(username: current_user.name , action_type: 2 , finished: :true, notice: notice)
+			flash[:success] = 'تم تحديث ملاحظة على مجال العناوين'
 			redirect_to ip_range_path(@ip_range)
 		else
 			render 'edit'
@@ -40,8 +44,12 @@ class IpRangeNotesController < ApplicationController
 	end
 
 	def destroy
+		ip_range_notee = IpRangeNote.find(params[:id])
+		ip_range = IpRangeNote.find(params[:id]).ip_range.ip_range
 		if IpRangeNote.find(params[:id]).destroy
-			flash[:success] = 'Ip Range Note deleted successfuly'
+			notice = 'تم حذف ملاحظة ' + ip_range_notee + ' من مجال العناوين ' + ip_range
+			ActionLog.create(username: current_user.name , action_type: 3 , finished: :true, notice: notice)
+			flash[:success] = 'تم حذف ملاحظة من مجال العناوين'
 			redirect_to ip_range_path(@ip_range)
 		end
 	end

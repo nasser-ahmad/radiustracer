@@ -16,7 +16,9 @@ class IspsController < ApplicationController
 	def create
 		@isp = Isp.new(isp_params)
 		if @isp.save
-			flash[:success]= "ISP added successfully!!!"
+			notice = 'تمت إضافة مزود جديد ' + @isp.name + ' بنجاح'
+    		ActionLog.create(username: current_user.name , action_type: 1 , finished: :true, notice: notice)          
+			flash[:success]= "تمت إضافة موزد جديد بنجاح"
 			redirect_to isps_path
 		else
 			render 'new'
@@ -32,7 +34,9 @@ class IspsController < ApplicationController
 		@isp = Isp.find(params[:id])
 
 		if @isp.update(isp_params)
-			flash[:success]= "ISP updated successfully!!!"
+			notice = 'تحديث بيانات المزود' + @isp.name + ' بنجاح'
+			ActionLog.create(username: current_user.name , action_type: 2 , finished: :true, notice: notice)
+			flash[:success]= "تم تحديث بيانات المزود بنجاح!!!"
 			redirect_to isp_path(@isp)
 		else
 			render 'edit'
@@ -40,8 +44,11 @@ class IspsController < ApplicationController
 	end
 
 	def destroy
+		name = Isp.find(params[:id]).name
 		Isp.find(params[:id]).destroy
-		flash[:success] = "Isp deleted"
+		notice = 'تم حذف المزود ' + name + 'بنجاح'
+		ActionLog.create(username: current_user.name , action_type: 3 , finished: :true, notice: notice)
+		flash[:success] = "تم حذف المزود"
 		redirect_to isps_path
 	end
 

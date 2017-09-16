@@ -29,3 +29,13 @@ information of that in local database
 	 	3. ensuring the correct working of all the routes of the application.
 	 	4. training of how to upload to the server.
 	 	5. finish
+
+	for 13-9-2017
+		1. Adding logging facilites.
+		2. Adding some styles to erroed records in the requests controller
+		3. training on tdd and ensuring the correctness of the project.
+		4. deployment , mysql and apache.
+		finish
+
+			1. Addming logging facilites:
+				- I want the website to log every action except of get on all controllers, so i want to create log 	model contains username, action_type, finished, notice , timestamps ...

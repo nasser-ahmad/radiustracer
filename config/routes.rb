@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   
 
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   root 'pages#home'
 
   resources :requests, :only => [:show , :new, :create , :index]
@@ -22,4 +19,6 @@ Rails.application.routes.draw do
   post '/search', to: 'ip_searches#create'
 
   get '/req_search' , to:'requests#search'
+
+  get '/action_logs', to: 'action_logs#index'
 end

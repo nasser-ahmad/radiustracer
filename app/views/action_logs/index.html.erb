@@ -1,0 +1,39 @@
+<div class="row well" style="background-color: #000000;">
+	<h2 style="text-align: center; color: white;">بحث</h2>
+		<%= form_tag action_logs_path, method: :get do %>
+			<div class="form-row" style="direction: rtl;">
+				<div class="col-md-2">
+					<%= submit_tag "بحث", name: nil , class: 'btn btn-success form-control' %>
+				</div>
+				<div class="col-md-5">
+					<%= text_field_tag :username, params[:username] , placeholder: "اسم المستخدم" , class: "form-control" %>
+				</div>		
+				<div class="col-md-5">
+				    <%= text_field_tag :notice, params[:notice] , placeholder: "العملية" , class: "form-control"  %>
+				</div>					
+			</div>
+
+		<% end %>
+</div>
+
+<div class="row">
+	<table class='table table-bordered'>
+		<thead>
+			<th>المستخدم</th>
+			<th>نوع العملية</th>
+			<th>وصف العملية</th>
+			<th>تاريخ العملية</th>
+		</thead>
+		<tbody>
+			<% @action_logs.each do |l| %>
+				<tr>
+					<td><%= l.username %></td>
+					<td><%= l.action_type %></td>
+					<td><%= l.notice %></td>
+					<td><%= l.created_at %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<%= will_paginate %>
+</div>

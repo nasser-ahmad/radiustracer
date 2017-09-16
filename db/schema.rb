@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825204303) do
+ActiveRecord::Schema.define(version: 20170913092801) do
+
+  create_table "action_logs", force: :cascade do |t|
+    t.string "username"
+    t.integer "action_type"
+    t.boolean "finished"
+    t.string "notice"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "action_types", force: :cascade do |t|
+    t.string "action_type"
+  end
 
   create_table "ip_range_notes", force: :cascade do |t|
     t.string "note"

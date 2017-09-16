@@ -21,6 +21,8 @@ class IpRangesController < ApplicationController
 	  @ip_range = IpRange.new(ip_range_params)
 	  @isp = Isp.find(params[:isp_id])			  		 
       if @ip_range.save
+      	notice = 'تمت إضافة المجال ' + @ip_range.ip_range + ' إلى المزود ' + @isp.name + ' بنجاح'
+      	ActionLog.create(username: current_user.name , action_type: 1 , finished: :true, notice: notice)
         flash[:success] = 'تمت إضافة المجال بنجاح'
         redirect_to isp_path(@isp)
 	  else
@@ -37,6 +39,8 @@ class IpRangesController < ApplicationController
 	def update
 		@ip_range = IpRange.find(params[:id])
 		if @ip_range.update(ip_range_params)
+			notice = 'تم تعديل مجال العناوين ' + @ip_range.ip_range + ' على  المزود ' + @ip_range.isp.name + ' بنجاح'
+			ActionLog.create(username: current_user.name , action_type: 2 , finished: :true, notice: notice)
 			flash[:success] = 'تم تعديل المجال بنجاح'
 			redirect_to isp_path(@isp)
 		else
@@ -49,12 +53,6 @@ class IpRangesController < ApplicationController
 
 	def destroy
 	end
-
-
-
-
-
-
 
 	private
 

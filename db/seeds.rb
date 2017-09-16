@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+	ActionType.create(action_type: 'create')
+	ActionType.create(action_type: 'update')
+	ActionType.create(action_type: 'delete')

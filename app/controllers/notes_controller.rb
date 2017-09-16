@@ -13,7 +13,9 @@ class NotesController < ApplicationController
 	def create
 		@isp_note = Note.new(note_params)
 		if @isp_note.save
-			flash[:success] = "Note info added successfuly"
+			notice = 'تمت إضافة الملاحظة '+ @isp_note.note + ' للمزود' + @isp_note.isp.name + ' بنجاح '
+      		ActionLog.create(username: current_user.name , action_type: 1 , finished: :true, notice: notice)          
+			flash[:success] = "تمت إضافة ملاحظة بنجاح"
 			redirect_to isp_path(@isp)
 		else
 			render 'new'
@@ -27,7 +29,9 @@ class NotesController < ApplicationController
 	def update
 		@isp_note = Note.find(params[:id])
 		if @isp_note.update(note_params)
-			flash[:success] = 'Note updated successfuly'
+			notice = 'تمت تحديث الملاحظة '+ @isp_note.note + ' للمزود' + @isp_note.isp.name + ' بنجاح '
+      		ActionLog.create(username: current_user.name , action_type: 2 , finished: :true, notice: notice)          
+			flash[:success] = 'تمت تحديث ملاحظة بنجاح'
 			redirect_to isp_path(@isp)
 		else
 			render 'edit'
@@ -39,8 +43,11 @@ class NotesController < ApplicationController
 	end
 
 	def destroy
+		note = Note.find(params[:id]).note
 		if Note.find(params[:id]).destroy
-			flash[:success] = 'Note deleted successfuly'
+			notice = 'تم حذف الملاحظة ' +  note + 'بنجاح'
+      		ActionLog.create(username: current_user.name , action_type: 3 , finished: :true, notice: notice)          
+			flash[:success] = 'تم حذف الملاحظة بنجاح'
 			redirect_to isp_path(@isp)
 		end
 	end

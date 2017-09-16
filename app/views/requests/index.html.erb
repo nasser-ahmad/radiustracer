@@ -4,24 +4,26 @@
 <div class="row">
 	<div class="col-lg-12 well" style="direction: rtl;"> 
 		<h3 style="text-align: center;">بحث ضمن جدول العمليات </h3>
-		<div class="col-lg-6 col-lg-offset-1 col-sm-6">
+		<div class="col-lg-4 col-lg-offset-2 col-sm-4">
 			<%= form_tag(req_search_path , :method => 'get' , :remote => :true) do %>
 				<%= text_field_tag(:from_date, '',class: 'datepicker date') %>
-		  		<%= submit_tag 'بحث' , name: nil %>
+		  		<%= submit_tag 'بحث' , name: nil , class: 'btn btn-success' %>
 			<% end %>
             
 	        <script type="text/javascript">
 	            $(function () {
 	                $('.datepicker').datetimepicker({
+	                	format: 'YYYY-MM-DD HH:mm'
 	                });
 	            });
 	        </script>
+	        
     	</div>
 		<div class="col-lg-4" style="direction: rtl;">
 			<%= form_tag(req_search_path , :method => 'get', :remote => :true) do %>
 				<%= label_tag(:isp_id, "اسم المزود") %>
 		  		<%= select_tag :isp_id,  options_for_select(@isps.collect{ |u| [u.name , u.id]})  %>
-		  		<%= submit_tag 'بحث' , name: nil %>
+		  		<%= submit_tag 'بحث' , name: nil , class: 'btn btn-success' %>
 			<% end %>
 		</div>
 	</div>

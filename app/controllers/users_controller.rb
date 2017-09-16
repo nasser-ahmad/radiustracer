@@ -14,7 +14,9 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
+      notice = 'تم خلق الحساب' + @user.name + ' جديد بنجاح'
   		log_in @user
+      ActionLog.create(username: current_user.name , action_type: 1 , finished: :true, notice: notice)          
   		flash[:success] = 'تم خلق حساب جديد بنجاح'
   		redirect_to root_path
   	else
@@ -32,6 +34,9 @@ class UsersController < ApplicationController
   def update
   	@user = User.find(params[:id])
   	if @user.update_attributes(user_params)
+      notice = 'تم تعديل بيانات المستخدم' + @user.name + ' بنجاح'
+      ActionLog.create(username: current_user.name , action_type: 2 , finished: :true, notice: notice)          
+
   		flash[:success] = 'تم تعديل بيانات المستخدم بنجاح'
   		redirect_to @user
   	else

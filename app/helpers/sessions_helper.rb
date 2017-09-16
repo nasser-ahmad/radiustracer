@@ -28,4 +28,10 @@ module SessionsHelper
       @user = User.find(params[:id])
       redirect_to(root_url) unless @user == current_user
     end	
+
+    def user_is_admin
+    	unless current_user.name == 'admin'
+    		redirect_to root_url
+    	end
+    end
 end

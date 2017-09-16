@@ -14,6 +14,8 @@ class IspHrsController < ApplicationController
 		@isp_hr = IspHr.new(hr_params)
 
 		if @isp_hr.save
+			notice = 'تمت إضافة معلومات موظف جديد ' + @isp_hr.name + ' للمزود ' + @isp_hr.isp.name + ' بنجاح'
+			ActionLog.create(username: current_user.name , action_type: 1 , finished: :true, notice: notice)
 			flash[:success] = "تمت إضافة معلومات موظف جديد بنجاح"
 			redirect_to isp_path(@isp)
 		else
@@ -28,6 +30,8 @@ class IspHrsController < ApplicationController
 	def update
 		@isp_hr = IspHr.find(params[:id])
 		if @isp_hr.update(hr_params)
+			notice = 'تم تحديث بيانات الموظف ' + @isp_hr.name + ' بنجاح على المزود ' + @isp_hr.isp.name
+			ActionLog.create(username: current_user.name , action_type: 2 , finished: :true, notice: notice)
 			flash[:success] = 'تم تعديل بيانات الموظف بنجاح'
 			redirect_to isp_path(@isp)
 		else
@@ -40,7 +44,11 @@ class IspHrsController < ApplicationController
 	end
 
 	def destroy
+		name = IspHr.find(params[:id]).name
+		isp = IspHr.find(params[:id]).isp.name
 		if IspHr.find(params[:id]).destroy
+			notice = 'تم حذف بيانات الموظف ' + name + 'من المزود' + isp + ' بنجاح'
+			ActionLog.create(username: current_user.name , action_type: 3 , finished: :true, notice: notice)
 			flash[:success] = 'تم حذف بيانات الموظف بنجاح'
 			redirect_to isp_path(@isp)
 		end

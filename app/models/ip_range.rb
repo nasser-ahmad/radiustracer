@@ -17,7 +17,7 @@ class IpRange < ActiveRecord::Base
 			    }
 	
 
-    validates :ip_range , presence: true
+    validates :ip_range , presence: true , uniqueness: true
     validates :subnet_mask , presence: true
 
 end

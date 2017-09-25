@@ -1,0 +1,24 @@
+Searching 138 files for "_backpack.html"
+
+/home/dakar/Desktop/git_turorial/explore_california/tours.html:
+   79              <div class="tourDescription">
+   80                <h2>Backpack Cal</h2>
+   81:               <p><img src="assets/images/back_bug.gif" alt="Backpack Cal" width="195" height="120" />Explore California our favorite way...by foot! Get outdoors and into the millions of acres of forests, desert, and spectacular scenery that California is famous for. We have a wide range of backpacking tour options, from single day-trips to week long guided excursions. Find a comfortable pair of shoes and come hiking with us! <a href="tours/tour_detail_backpack_cal.html" title="Backpack Cal" class="more">learn more!</a></p>
+   82              </div>
+   83  
+
+/home/dakar/Desktop/git_turorial/explore_california/tours/tour_detail_backpack_cal.html:
+   59            <h1>Our Tours</h1>
+   60            <div id="subLinks">
+   61:             <p><a href="../tours.html" title="Browse tours">All Tours</a> &raquo; <a href="tour_detail_backpack_cal.html" title="Browse tours">  Backpack Cal</a></p>
+   62            </div>
+   63          </div>
+
+/home/dakar/Desktop/git_turorial/explore_california/tours/tour_detail_bigsur.html:
+   59            <h1>Our Tours</h1>
+   60            <div id="subLinks">
+   61:             <p><a href="../tours.html" title="Browse tours">All Tours</a> &raquo; <a href="tour_detail_backpack_cal.html" title="Browse tours">  Backpack Cal</a> &raquo; <a href="tour_detail_bigsur.html" title="Browse tours">  Big Sur Retreat</a></p>
+   62            </div>
+   63          </div>
+
+3 matches across 3 files

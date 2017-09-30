@@ -2,6 +2,7 @@
   <li class="active pull-right"><a data-toggle="tab" href="#home">موظفي المزود</a></li>
   <li class="pull-right"><a data-toggle="tab" href="#menu1">مجالات العناوين</a></li>
   <li class="pull-right"><a data-toggle="tab" href="#menu2">الملاحظات على المزود</a></li>
+  <li class="pull-right"><a data-toggle="tab" href="#menu3">حسابات ADSL  على المزود</a></li>
 </ul>
 
 <div class="tab-content">
@@ -13,5 +14,8 @@
   </div>
   <div id="menu2" class="tab-pane fade">
     <%= render 'isps/isp_show_tabs/isp_notes_tab' , :isp => isp%>
+  </div>
+  <div id="menu3" class="tab-pane fade">
+    <%= render 'isps/isp_show_tabs/isp_adsl_accounts_tab' , :isp => isp%>
   </div>
 </div>

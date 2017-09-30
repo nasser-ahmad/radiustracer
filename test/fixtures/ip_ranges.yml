@@ -1,0 +1,6 @@
+ip_r1:
+  ip_range: 10.0.0.1
+  subnet_mask: 255.0.0.0
+
+ip_r2:
+  subnet_mask: 255.256.0.0

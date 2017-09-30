@@ -1,0 +1,16 @@
+<%= render 'shared/errors' , obj: @isp_adsl_account %>
+
+<div class="row">
+	<div class="well"> 
+		<%= form_for([@isp,@isp_adsl_account] , html: {class:  'general-form'}) do |p| %>
+			<%= p.label(:account , "الحساب")%>
+			<%= p.text_field(:account , :style => 'rtl') %>
+			<%= p.label(:adsl_password , "كلمة السر")%>
+			<%= p.text_field(:adsl_password , :style => 'rtl') %>
+			<%= p.hidden_field(:isp_id , :value => @isp.id) %>
+			<%= p.submit(@isp_adsl_account.new_record? ? "إنشاء حساب" : "تحديث معلومات حساب", class: "btn btn-success") %> 
+		<% end %>
+	</div>
+
+</div>
+

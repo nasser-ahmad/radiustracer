@@ -23,6 +23,8 @@
 		   	 <%= link_to 'رجوع لصفحة المزودات' , isps_path(:i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %>
 		   <% when /الموظف/ %>
 		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp, :i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %>
+		   <% when /ADSL/ %>
+		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp, :i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %> 
 		   <% when 'عناوين المزودات' %>
 		   	 <%= link_to 'رجوع لصفحة المزود' , isp_path(@isp , :i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %>
 		   <% when /معلومات/ %>
@@ -40,7 +42,9 @@
 		   	<% when 'حساب جديد' %>
 		   	 <%= link_to 'رجوع للصفحة الرئيسية ' , root_path , :class => 'btn btn-danger pull-left' %>   
 		   	<% when 'عناوين جديدة' %>
-		   	 <%= link_to 'رجوع لصفحة المزود ' , isp_path(@isp ,:i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %>   
+		   	 <%= link_to 'رجوع لصفحة المزود ' , isp_path(@isp ,:i_term => params[:i_term]) , :class => 'btn btn-danger pull-left' %>
+		   	<% when 'قائمة المستخدمين' %>
+		   	 <%= link_to 'إضافة مستخدم جديد' , new_user_path , class: 'btn btn-success' %>
 		  <% end %>
 	   </h1>
 	  </div>

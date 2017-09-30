@@ -26,7 +26,9 @@ module SessionsHelper
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless @user == current_user
+      if !(@user == current_user || @current_user.name == 'admin')
+      	redirect_to(root_url) 
+      end 
     end	
 
     def user_is_admin

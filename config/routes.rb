@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   	resources :ip_ranges , shallow: true do
   		resources :ip_range_notes
   	end
-  	resources :isp_hrs , :notes
+  	resources :isp_hrs , :notes , :isp_adsl_accounts
   end
 
   resources :users

@@ -1,9 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+<<<<<<< HEAD
   name: first
   email: MyString
 
 two:
   name: second
+=======
+  name: user1
+  email: MyString
+
+two:
+  name: MyString2
+>>>>>>> Adding_validations
   email: MyString

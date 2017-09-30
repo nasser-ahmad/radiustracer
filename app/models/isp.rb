@@ -4,7 +4,8 @@ class Isp < ActiveRecord::Base
 	has_many :ip_ranges
 	has_many :isp_hrs
 	has_many :notes
-
+	has_many :isp_adsl_accounts
+	validates  :name ,  presence: true , uniqueness: { case_sensitive: false }
 
 
 
@@ -15,13 +16,4 @@ class Isp < ActiveRecord::Base
 			all
 		end
 	end
-
-	def is_ip? ip
-		if ipv4? ip
-			return true
-		else
-			return false
-		end
-	end
-
 end

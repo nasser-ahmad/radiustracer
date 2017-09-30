@@ -1,1 +1,13 @@
-<%= @user.name %>, <%= @user.email %>
+<%= render 'shared/page_title' , title: "إعدادات المدير " %>
+
+<div class="row">
+	<div style="background-color: #fff7e6; border: 1px solid black;" class="col-lg-12 jumbotron home_jumpo">
+		<% if current_user.name == 'admin' %>
+			<%= link_to 'المستخدمين' , users_path , :class => 'btn btn-success home-button' %>
+		<% else %>
+
+			<%= link_to 'تعديل الحساب' , edit_user_path(current_user) , :class => 'btn btn-success home-button' %>
+		<% end %>
+		<%= link_to '#' , '#' , :class => 'btn btn-success home-button' %>
+	</div>
+</div>

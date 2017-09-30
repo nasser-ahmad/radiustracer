@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913092801) do
+ActiveRecord::Schema.define(version: 20170929205958) do
 
   create_table "action_logs", force: :cascade do |t|
     t.string "username"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20170913092801) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "subnet_mask"
+  end
+
+  create_table "isp_adsl_accounts", force: :cascade do |t|
+    t.integer "isp_id"
+    t.string "account"
+    t.string "adsl_password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "isp_hrs", force: :cascade do |t|

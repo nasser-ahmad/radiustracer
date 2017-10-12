@@ -10,12 +10,16 @@
 				<th>
 					التاريخ
 				</th>
+				<th>
+					الخيارات
+				</th>
 			</thead>
 			<tbody>
 					<% isp.notes.each do   |n| %>
 						<tr>
 							<td><%= n.note %></td>
 							<td><%= n.created_at %></td>
+							<td><%= link_to 'تعديل' , edit_isp_note_path(isp,n) %> &nbsp;&nbsp; <%= link_to 'حذف' , isp_note_path(n), data: {:confirm => 'متأكد?'}, :method => :delete %>  </td>
 						</tr>
 
 					<% end %>

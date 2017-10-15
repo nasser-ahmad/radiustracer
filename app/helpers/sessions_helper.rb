@@ -26,13 +26,15 @@ module SessionsHelper
 
     def correct_user
       @user = User.find(params[:id])
-      if !(@user == current_user || @current_user.name == 'admin')
+      if !(@user == current_user)
       	redirect_to(root_url) 
       end 
     end	
 
     def user_is_admin
+    	logged_in_user
     	unless current_user.name == 'admin'
+    		flash[:danger] = 'هذا الحساب لا يمتلك صلاحيات كافية لإجراء العملية'
     		redirect_to root_url
     	end
     end

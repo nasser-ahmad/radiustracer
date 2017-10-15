@@ -61,6 +61,16 @@ class IpRangesController < ApplicationController
 			redirect_to isp_path(@isp)
 		end
 	end
+	def destroy
+         ip_ra = IpRange.find(params[:id]).ip_range
+         isp = IpRange.find(params[:id]).isp.name
+         if IpRange.find(params[:id]).destroy
+                  notice = 'تم حذف المجال ' + ip_ra + 'من المزود' + isp + ' بنجاح'
+                 ActionLog.create(username: current_user.name , action_type: 3 , finished: :true, notice: notice)
+                 flash[:success] = 'تم حذف المجال بنجاح'
+                 redirect_to isp_path(@isp)
+         end
+    end
 
 	private
 

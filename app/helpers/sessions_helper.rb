@@ -20,21 +20,21 @@ module SessionsHelper
 	def logged_in_user
 		unless logged_in?
 			flash[:danger] = 'الرجاء تسجيل الدخول قبل البدء بالعمل'
-			redirect_to root_url
+			redirect_to login_url
 		end
 	end
 
     def correct_user
-      user = User.find(params[:id])
-      if !(user == current_user)
-	flash[:danger] = 'الرجاء استعمال المستخدم الصحيح لتعديل بيانات المستخدم'
+      @user = User.find(params[:id])
+      if !(@user == current_user || @current_user.name == 'admin')
       	redirect_to(root_url) 
       end 
     end	
 
     def user_is_admin
-    	if(logged_in?)
-		redirect_to root_url unless current_user.name == 'admin'
-	end
+    	unless current_user.name == 'admin'
+    		redirect_to root_url
+    	end
     end
 end
+

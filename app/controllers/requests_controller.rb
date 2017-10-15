@@ -63,7 +63,7 @@ class RequestsController < ApplicationController
 	private
 
 		def request_params
-			params.require(:request).permit(:isp_id,:private_ip,:router_ip,:assign_date, :release_date,:public_ip , :from_date)
+			params.require(:request).permit(:isp_id,:private_ip,:router_ip,:assign_date, :release_date,:rad_assign_date, :rad_release_date,:has_error, :public_ip , :from_date)
 		end
 
 		def check_isp_range(ranges)

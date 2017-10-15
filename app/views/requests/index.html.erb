@@ -32,7 +32,7 @@
 <div class="row"">	
 	<div class="col-lg-12 well" style="direction: rtl;text-align: center;">
 		<h2>جدول العمليات | <%= link_to 'إضافة عملية جديدة' , new_request_path , :class => 'btn btn-success'%></h2>
-		<table class="table  table-bordered table-striped ">
+		<table class="table  table-bordered">
 			<thead>
 			  <tr>
 			    <th>المزود</th>
@@ -41,7 +41,9 @@
 			    <th>العنوان الخاص</th>
 			    <th>تاريخ الاسناد</th>
 			    <th>تاريخ التحرير</th>
-			    <th>آخر تحديث</th>
+			    <th>الاسناد في الراديوس</th>
+			    <th>التحرير في الراديوس</th>
+			    <th>تاريخ الاضافة</th>
 			  </tr>
 			</thead>
 			<tbody id="requests_table">

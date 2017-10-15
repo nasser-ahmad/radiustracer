@@ -39,3 +39,8 @@ information of that in local database
 
 			1. Addming logging facilites:
 				- I want the website to log every action except of get on all controllers, so i want to create log 	model contains username, action_type, finished, notice , timestamps ...
+
+
+for 15-10-2017:
+		1. Add RADIUS IP assign , IP release dates to request record.
+		2. Add some coloring to the request record with not correct values.	

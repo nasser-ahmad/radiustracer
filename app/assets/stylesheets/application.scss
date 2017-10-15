@@ -171,7 +171,9 @@ td , .isp_ip_ranges_grid li {
 	text-align: center;
 }
 
-
+tr.request_has_error{
+	background-color: #efa5a5;
+}
 
 $gray-medium-light: #eaeaea;
 

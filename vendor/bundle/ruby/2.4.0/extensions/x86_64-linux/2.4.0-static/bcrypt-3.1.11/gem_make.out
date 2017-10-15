@@ -1,0 +1,19 @@
+current directory: /var/www/radius_tracer/code/vendor/bundle/ruby/2.4.0/gems/bcrypt-3.1.11/ext/mri
+/home/ahmad/.rbenv/versions/2.4.2/bin/ruby -r ./siteconf20171009-2389-wtil8k.rb extconf.rb
+creating Makefile
+
+current directory: /var/www/radius_tracer/code/vendor/bundle/ruby/2.4.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" clean
+
+current directory: /var/www/radius_tracer/code/vendor/bundle/ruby/2.4.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR="
+compiling bcrypt_ext.c
+compiling crypt.c
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.so
+
+current directory: /var/www/radius_tracer/code/vendor/bundle/ruby/2.4.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20171009-2389-ht9e32

@@ -13,6 +13,9 @@
 				<th>
 					التاريخ
 				</th>
+				<th>
+					الخيارات
+				</th>
 			</thead>
 			<tbody>
 					<% isp.isp_adsl_accounts.each do   |a| %>
@@ -20,6 +23,7 @@
 							<td><%= a.account %></td>
 							<td><%= a.adsl_password %></td>
 							<td><%= a.created_at %></td>
+							<td><%= link_to 'تعديل' , edit_isp_isp_adsl_account_path(isp,a) %> &nbsp;&nbsp; <%= link_to 'حذف' , isp_isp_adsl_account_path(isp,a), data: {:confirm => 'متأكد?'}, :method => :delete %>  </td>
 						</tr>
 
 					<% end %>

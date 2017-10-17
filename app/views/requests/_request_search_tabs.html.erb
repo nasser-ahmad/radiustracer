@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs " >
+  <li class="active pull-right"><a data-toggle="tab" href="#home">بحث ضمن مجال</a></li>
+  <li class="pull-right"><a data-toggle="tab" href="#menu1">بحث ضمن يوم محدد</a></li>
+</ul>
+
+<div class="tab-content cols-lg-12">
+  <div id="home" class="tab-pane fade in active">
+    <%= render 'requests/req_search_tabs/req_range_search'  %>
+  </div>
+  <div id="menu1" class="tab-pane fade">
+    <%= render 'requests/req_search_tabs/req_specific_date_search'  %>
+  </div>
+  
+</div>

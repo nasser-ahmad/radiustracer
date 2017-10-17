@@ -21,23 +21,14 @@ class RequestsController < ApplicationController
 
 	def create
 		@request = Request.new(request_params)
-		public_ip = request.remote_ip
 		isp = Isp.find(@request.isp_id)
-		if check_isp_range(isp.ip_ranges) 				
-			@request.public_ip = public_ip
-			if @request.save
-				ActionLog.create(username: current_user.name , action_type: 1 , finished: :true, notice: 'تمت إضافة العملية بنجاح !!!')			
-				flash[:success] = "تمت إضافة العملية بنجاح !!!"
-				redirect_to requests_path
-			else
-				ActionLog.create(username: current_user.name , action_type: 1 , finished: :false, notice: 'خطأ في إضافة عملية جديدة!!')
-				flash[:danger] = "خطأ في إضافة عملية جديدة!!"
-				@isps = Isp.all
-				render 'new'
-			end
+		if @request.save
+			ActionLog.create(username: current_user.name , action_type: 1 , finished: :true, notice: 'تمت إضافة العملية بنجاح !!!')			
+			flash[:success] = "تمت إضافة العملية بنجاح !!!"
+			redirect_to requests_path
 		else
-			ActionLog.create(username: current_user.name , action_type: 1 , finished: :false, notice: 'العنوان الرقمي لا ينتمي للمزود المذكور')
-			flash[:danger] = "العنوان الرقمي لا ينتمي للمزود المذكور"
+			ActionLog.create(username: current_user.name , action_type: 1 , finished: :false, notice: 'خطأ في إضافة عملية جديدة!!')
+			flash[:danger] = "خطأ في إضافة عملية جديدة!!"
 			@isps = Isp.all
 			render 'new'
 		end

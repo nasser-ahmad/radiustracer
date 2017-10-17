@@ -46,11 +46,11 @@ body {
 
 .general-form input {
 	
-	padding-bottom: 5px;
+	padding-bottom: 2px;
 	border: 1px solid #2d2d2d;
 	border-radius: 5px;
-	margin-bottom: 5px;
-	margin-top: 5px;
+	margin-bottom: 2px;
+	margin-top: 2px;
 	margin-left: 5px;
 	width: 100%;
 	text-align: center;
@@ -103,25 +103,34 @@ select {
  }
 
 .home-button{
-	height: 250px;
-	width: 250px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	height: 110px;
+	width: 210px;
+	margin-top: 5;
+	margin-bottom: 5;
 	float: left;
 	margin-right: 10px;
-	font-size: 2em;
+	font-size: 1.5em;
 	color: #fff;
 	text-transform: uppercase;
 	letter-spacing: -1px;
-	padding: 105px 0;
-	margin-left: 160px;
+	padding: 38px 0;
+	margin-left: 230px;
 	font-weight: bold;
 	text-align: center;
 
 }
 
 .home_jumpo {
-	height: 350px;
+	height: 150px;
+	margin-top: 40px;
+}
+.home_well_search{
+	height: 120px;
+	margin-top: 40px;
+}
+.home_jumpo_ip{
+	heigth: 50px;
+	margin-top: 40px;
 }
 
 table th{

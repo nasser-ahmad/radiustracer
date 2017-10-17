@@ -5,18 +5,26 @@
 	1. Requests index page (which contains search facilities)
 	2. ISPs index page.
 -->
-<div class="row">
-	<div style="background-color: #fff7e6; border: 1px solid black;" class="col-lg-12 jumbotron home_jumpo">
-		<%= link_to 'Requests' , requests_path , :class => 'btn btn-success home-button' %>
-		<%= link_to 'ISPs' , isps_path , :class => 'btn btn-success home-button' %>
-	</div>
+<div style="background-color: #fff7e6; border: 1px solid black;" class="row well home_jumpo_ip">
+	<h3 style=" text-align: center; margin-top: 0px;">أنت متصل من العنوان <span class="text-success text-capitalize"><%= request.remote_ip %></span> 
+		<% if !@ip_ranges.empty? %>
+			&nbsp; ينتمى للمزود <%= link_to @ip_ranges.first.isp.name , isp_path(@ip_ranges.first.isp) , class: 'btn btn-success' %>
+		<% else %>
+			&nbsp; هذا العنوان لا ينتمي ﻷي مجال
+		<% end %>
+	</h3>
 </div>
 
 
-<div style="background-color: #fff7e6; border: 1px solid black;" class="row jumbotron home_jumpo">
-	<h3 style=" text-align: center; margin-top: 0px;">البحث عن عنوان رقمي</h3>
-	<div class="col-lg-3 pull-right" style="margin-top: 35px;">
-		<%= render 'shared/errors' , :obj => @ip_search %>
+<div class="row">
+	<div style="background-color: #fff7e6; border: 1px solid black;" class="col-lg-12 well home_jumpo">
+		<%= link_to 'تصفح اختبارات RADIUS' , requests_path , :class => 'btn btn-success home-button' %>
+		<%= link_to 'تصفح مزودات الخدمة' , isps_path , :class => 'btn btn-success home-button' %>
+	</div>
+</div>
+
+<div style="background-color: #fff7e6; border: 1px solid black;" class="row well home_well_search">
+	<div class="col-lg-3 pull-right" >
 		<%= form_for(@ip_search , :url => search_path , :class => 'general-form', remote:  :true, :validate=>true) do |f| %>
   			<%= f.label(:ip_term, 'بحث عن العنوان الرقمي') %>		
 			<%= f.text_field(:ip_term) %>

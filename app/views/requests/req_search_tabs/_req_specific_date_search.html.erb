@@ -1,0 +1,23 @@
+<div class="well cols-lg-12" style="position: relative;" >
+	<%= form_tag(req_search_path , :method => 'get' , :remote => :true ) do %>
+		<%= label_tag(:from_date, "تاريخ البحث") %>		
+        <%= text_field_tag(:from_date ,'' ,class: 'datepicker date') %>
+  		<%= submit_tag 'بحث' , name: nil , class: 'btn btn-success' %>
+	<% end %>   
+</div>
+<div class="row" >
+    
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('.datepicker').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm',
+            widgetPositioning: {
+                horizontal: 'auto',
+                vertical: 'auto'
+            }
+        });
+    });
+
+</script>

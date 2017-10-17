@@ -4,11 +4,13 @@
 
 <div class="row">
 	<div class="well col-md-6 col-md-offset-3" style="direction: rtl;">
-		<%= form_for(@request , :url => { :action => "create" , :request_ip => request.remote_ip } ,html: {class:  'general-form'})    do  |f| %>
+		<%= form_for(@request , :url => { :action => "create" } ,html: {class:  'general-form'})    do  |f| %>
 		  <%= f.label(:isp_id, "اسم المزود") %>
 		  <%= f.select :isp_id,  options_for_select(@isps.collect{ |u| [u.name , u.id]})  %>
 		  <%= f.label(:private_ip, 'العنوان الخاص') %>
 		  <%= f.text_field(:private_ip) %>
+		  <%= f.label(:public_ip, 'العنوان العام') %>
+		  <%= f.text_field(:public_ip) %>
 		  <%= f.label(:router_ip, 'عنوان الموجه') %>
 		  <%= f.text_field(:router_ip) %>		  
 	      <%= f.label(:assign_date, 'تاريخ الإسناد') %>

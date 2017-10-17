@@ -3,57 +3,11 @@
 
 <div class="row well" style="direction: rtl;">
 	<h3 style="text-align: center;">بحث ضمن جدول العمليات </h3>
-		<div class="col-lg-4 col-lg-offset-2 col-sm-4 well">
-			<h3>بحث في يوم محدد </h3>
-			<%= form_tag(req_search_path , :method => 'get' , :remote => :true) do %>
-				<%= label_tag(:from_date, "تاريخ البحث") %>
-				<%= text_field_tag(:from_date, '',class: 'datepicker date') %>
-		  		<%= submit_tag 'بحث' , name: nil , class: 'btn btn-success' %>
-			<% end %>
-            
-	        <script type="text/javascript">
-	            $(function () {
-	                $('.datepicker').datetimepicker({
-	                	format: 'YYYY-MM-DD HH:mm'
-	                });
-	            });
-	        </script>
-	        
-    	</div>
-		<div class="col-lg-4 well" style="direction: rtl;">
-			<h3>بحث بالنسبة لمزود معين</h3>
-
-			<%= form_tag(req_search_path , :method => 'get', :remote => :true) do %>
-				<%= label_tag(:isp_id, "اسم المزود") %>
-		  		<%= select_tag :isp_id,  options_for_select(@isps.collect{ |u| [u.name , u.id]})  %>
-		  		<%= submit_tag 'بحث' , name: nil , class: 'btn btn-success' %>
-			<% end %>
-		</div>
+	<%= render 'request_search_tabs' %>
 </div>
 
-<div class="row"">	
-	<div class="col-lg-12 well" style="direction: rtl;text-align: center;">
-		<h2>جدول العمليات | <%= link_to 'إضافة عملية جديدة' , new_request_path , :class => 'btn btn-success'%></h2>
-		<table class="table  table-bordered">
-			<thead>
-			  <tr>
-			    <th>المزود</th>
-			    <th>العنوان العام</th>
-			    <th>عنوان الموجه</th>
-			    <th>العنوان الخاص</th>
-			    <th>تاريخ الاسناد</th>
-			    <th>تاريخ التحرير</th>
-			    <th>الاسناد في الراديوس</th>
-			    <th>التحرير في الراديوس</th>
-			    <th>تاريخ الاضافة</th>
-			  </tr>
-			</thead>
-			<tbody id="requests_table">
-				    
-			</tbody>
-		</table> 		             
-		  
-	</div>
+<div class="row request_table_div">	
+	
 </div>
 
 <hr/>

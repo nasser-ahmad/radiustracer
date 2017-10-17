@@ -15,6 +15,7 @@
 
 		   <% when 'العمليات' %>
 			  <%= link_to 'رجوع للصفحة الرئيسية' , root_path , :class => 'btn btn-danger pull-left' %> 
+			  <%= link_to 'إضافة عملية جديدة' , new_request_path , :class => 'btn btn-success pull-right'%>
 		   <% when 'عملية جديدة' %>
 			 <%= link_to 'رجوع لصفحة العمليات' , requests_path , :class => 'btn btn-danger pull-left' %>
 		   <% when 'تعديل بيانات مزود' %>

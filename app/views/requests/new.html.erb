@@ -21,6 +21,8 @@
 		  <%= f.text_field(:rad_assign_date, class: 'datepicker date') %>
 		  <%= f.label(:rad_release_date, 'التحرير في الراديوس') %>
 		  <%= f.text_field(:rad_release_date, class: 'datepicker date') %>
+		  <%= f.label(:note, 'ملاحظة') %>
+		  <%= f.text_field(:note) %>
 		  <%= f.label(:has_error, 'يوجد خطأ') %>
 		  <%= f.check_box(:has_error) %>
 		  <%= f.submit("إضافة" , :id => 'request_submit' , :class => 'btn btn-success') %>

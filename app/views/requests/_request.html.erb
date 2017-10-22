@@ -4,9 +4,9 @@
 	<td><%= request.public_ip %></td>
 	<td><%= request.router_ip %></td>
 	<td><%= request.private_ip %></td>
-	<td><%= request.assign_date.strftime("%Y/%m/%d %H:%M") %> </td>
-	<td><%= request.release_date.strftime("%Y/%m/%d %H:%M")%> </td>
-	<td><%= request.rad_assign_date.strftime("%Y/%m/%d %H:%M")%></td>
-	<td><%= request.rad_release_date.strftime("%Y/%m/%d %H:%M")%></td>
-	<td><%= request.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+	<td><%= request.assign_date.strftime("%Y/%m/%d %H:%M") unless request.assign_date.nil?  %> </td>
+	<td><%= request.release_date.strftime("%Y/%m/%d %H:%M") unless request.release_date.nil? %> </td>
+	<td><%= request.rad_assign_date.strftime("%Y/%m/%d %H:%M") unless request.rad_assign_date.nil? %></td>
+	<td><%= request.rad_release_date.strftime("%Y/%m/%d %H:%M") unless request.rad_release_date.nil? %></td>
+	<td><%= request.note %> </td>
 </tr>

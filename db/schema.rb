@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171015170326) do
+ActiveRecord::Schema.define(version: 20171022084809) do
 
   create_table "action_logs", force: :cascade do |t|
     t.string "username"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20171015170326) do
     t.datetime "rad_assign_date"
     t.datetime "rad_release_date"
     t.boolean "has_error", default: false
+    t.string "note"
   end
 
   create_table "users", force: :cascade do |t|

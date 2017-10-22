@@ -5,7 +5,6 @@ class RequestsController < ApplicationController
 	before_action :logged_in_user
 
 	def index
-		@requests = Request.paginate(:page => params[:page], per_page: 10)
 		@isps = Isp.all		
 	end
 
@@ -36,13 +35,13 @@ class RequestsController < ApplicationController
 
 	def search
 		if !params[:isp_id].nil? 
-			@requests= Request.where(:isp_id => params[:isp_id])
+			@requests= Request.where(:isp_id => params[:isp_id]).paginate(:page => params[:page], per_page: 10)
 			respond_to do |format|
 				format.js
 			end
 		else
 			d_time = DateTime.parse(params[:from_date])
-			@requests = Request.created_between(d_time.beginning_of_day,d_time.end_of_day)
+			@requests = Request.created_between(d_time.beginning_of_day,d_time.end_of_day).paginate(:page => params[:page], per_page: 10)
 
 			respond_to do |format|
 				format.js
@@ -54,7 +53,7 @@ class RequestsController < ApplicationController
 	private
 
 		def request_params
-			params.require(:request).permit(:isp_id,:private_ip,:router_ip,:assign_date, :release_date,:rad_assign_date, :rad_release_date,:has_error, :public_ip , :from_date)
+			params.require(:request).permit(:isp_id,:private_ip,:router_ip,:assign_date, :release_date,:rad_assign_date, :rad_release_date,:has_error, :public_ip , :from_date , :note)
 		end
 
 		def check_isp_range(ranges)

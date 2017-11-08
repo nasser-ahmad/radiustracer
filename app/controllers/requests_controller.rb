@@ -17,6 +17,23 @@ class RequestsController < ApplicationController
 		@request = Request.new
 	end
 
+	def edit
+		@isps = Isp.all
+		@request = Request.find(params[:id])
+	end
+
+	def update
+		@request = Request.find(params[:id])
+
+		if @request.update(request_params)
+			notice = 'تحديث بيانات الدخول على المزود ' + @request.isp.name + ' بنجاح'
+			ActionLog.create(username: current_user.name , action_type: 2 , finished: :true, notice: notice)
+			flash[:success]= "تم تحديث بيانات الدخول بنجاح!!!"
+			redirect_to requests_path
+		else
+			render 'edit'
+		end
+	end
 
 	def create
 		@request = Request.new(request_params)

@@ -9,4 +9,7 @@
 	<td><%= request.rad_assign_date.strftime("%Y/%m/%d %H:%M") unless request.rad_assign_date.nil? %></td>
 	<td><%= request.rad_release_date.strftime("%Y/%m/%d %H:%M") unless request.rad_release_date.nil? %></td>
 	<td><%= request.note %> </td>
+	<td>
+		<%= link_to 'تعديل', edit_request_path(request) %>
+	</td>
 </tr>

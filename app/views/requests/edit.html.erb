@@ -1,0 +1,38 @@
+<%= render 'shared/errors' , obj: @request %>
+
+<%= render 'shared/page_title' , title: "تعديل عملية الدخول" %>
+
+<div class="row">
+	<div class="well col-md-6 col-md-offset-3" style="direction: rtl;">
+		<%= form_for(@request,html: {class:  'general-form'})    do  |f| %>
+		  <%= f.label(:isp_id, "اسم المزود") %>
+		  <%= f.select :isp_id,  options_for_select(@isps.collect{ |u| [u.name , u.id]})  %>
+		  <%= f.label(:private_ip, 'العنوان الخاص') %>
+		  <%= f.text_field(:private_ip) %>
+		  <%= f.label(:public_ip, 'العنوان العام') %>
+		  <%= f.text_field(:public_ip) %>
+		  <%= f.label(:router_ip, 'عنوان الموجه') %>
+		  <%= f.text_field(:router_ip) %>		  
+	      <%= f.label(:assign_date, 'تاريخ الإسناد') %>
+	      <%= f.text_field(:assign_date, class: 'datepicker date') %>
+		  <%= f.label(:release_date, 'تاريخ التحرير') %>
+		  <%= f.text_field(:release_date, class: 'datepicker date') %>
+		  <%= f.label(:rad_assign_date, 'الإسناد في الراديوس') %>
+		  <%= f.text_field(:rad_assign_date, class: 'datepicker date') %>
+		  <%= f.label(:rad_release_date, 'التحرير في الراديوس') %>
+		  <%= f.text_field(:rad_release_date, class: 'datepicker date') %>
+		  <%= f.label(:note, 'ملاحظة') %>
+		  <%= f.text_field(:note) %>
+		  <%= f.label(:has_error, 'يوجد خطأ') %>
+		  <%= f.check_box(:has_error) %>
+		  <%= f.submit("تعديل" , :id => 'request_submit' , :class => 'btn btn-success') %>
+		<% end %>
+	</div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('.datepicker').datetimepicker({
+        	format: 'YYYY-MM-DD HH:mm'
+        });
+    });
+</script>

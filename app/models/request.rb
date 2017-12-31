@@ -9,5 +9,5 @@ class Request < ActiveRecord::Base
       :with => Regexp.union(Resolv::IPv4::Regex, Resolv::IPv6::Regex)
     			}
 
-	scope :created_between, lambda {|start_date, end_date| where("created_at >= ? AND created_at <= ?", start_date, end_date )}
+	scope :created_between, lambda {|start_date, end_date| where("assign_date >= ? AND assign_date <= ?", start_date, end_date )}
 end

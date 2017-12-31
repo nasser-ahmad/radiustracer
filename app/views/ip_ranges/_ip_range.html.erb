@@ -1,4 +1,12 @@
 	<div class="well" style="font-size: 1.2em;"> 
 		العنوان الرقمي عائد لمزود: <%= link_to ip_range.isp.name , isp_path(ip_range.isp) , :class => 'btn btn-success'  %>&nbsp;&nbsp;
 		ضمن المجال <%= ip_range.ip_range + '/' + ip_range.subnet_mask %>
+		<% if ip_range.ip_range_notes.length > 0 %>
+			&nbsp;&nbsp;والملاحظات التالية: 
+			<ul >
+				<% ip_range.ip_range_notes.each do |n| %>
+					<li><%= n.note %></li>	
+				<% end %>
+			</ul>
+		<% end %>
     </div>
